@@ -20,9 +20,11 @@ namespace CheckYourself
     /// </summary>
     public partial class MainWindow : Window
     {
+        string m = "Эмиль даун";
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
