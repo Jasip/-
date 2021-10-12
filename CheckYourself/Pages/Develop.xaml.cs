@@ -13,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CheckYourself
+namespace CheckYourself.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Develop.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Develop : Page
     {
-        string m = "Прости Эмиль!";
-        public MainWindow()
+        public Develop()
         {
             InitializeComponent();
-            
         }
     }
 }
