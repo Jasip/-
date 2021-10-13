@@ -5,10 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CheckYourself.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="ChangeVictor">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
+            <Button FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">Назад</Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,60,0,0">
+                <TextBlock FontSize="40">Выбрать викторину</TextBlock>
+                <ComboBox Height="40" Margin="20">
+                    
+                </ComboBox>
+                <TextBox Height="40" Margin="20" FontSize="25"></TextBox>
+                <Button FontSize="40" Click="Button_Click_Play">Продолжить</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

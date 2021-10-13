@@ -9,6 +9,17 @@
       Title="Help">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">Назад</Button>
+            <TextBlock FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">Правила</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="80,60,80,0" FontSize="40" VerticalAlignment="Top" >Игра проверь себя - этто конкурс викторина, в котором участиинк должен правильно ответить на ряд вопросов с несколькими вариантами ответов чтобы получить очки. Всего 10 вопросов, каждый вопрос стоит определенной суммы очков, участник не имеет никаких временных ограничений для предоставления ответа. Учатсник также получает два вида подсказок, чтобы помочь себе, если он застрял на конкретном вопросе.</TextBlock>
+        </Grid>
+       
     </Grid>
 </Page>

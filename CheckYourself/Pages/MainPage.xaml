@@ -5,10 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CheckYourself.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="MainPage">
 
-    <Grid>
-        
+    <Grid Background="#1b1b1b">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="600"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="900"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Button Click="Button_Click_Play">Играть</Button>
+                <Button Click="Button_Click_DevelopMode">Режим Макета</Button>
+                <Button Click="Button_Click_Help">Правила</Button>
+                <Button Click="Button_Click_Exit">Выход</Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <TextBlock Foreground="White" FontSize="60">Звук</TextBlock>
+        </Grid>
     </Grid>
 </Page>

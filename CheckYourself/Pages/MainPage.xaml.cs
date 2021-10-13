@@ -24,5 +24,21 @@ namespace CheckYourself.Pages
         {
             InitializeComponent();
         }
+        private void Button_Click_Play(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.ChangeVictor());
+        }
+        private void Button_Click_DevelopMode(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.ChangeDevelop());
+        }
+        private void Button_Click_Help(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.Help());
+        }
+        private void Button_Click_Exit(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

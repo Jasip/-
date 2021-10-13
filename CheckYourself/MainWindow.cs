@@ -22,23 +22,10 @@ namespace CheckYourself
         public MainWindow()
         {
             InitializeComponent();
+            Classes.Manager.MainFrame = MainFrame;
+            Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
         }
 
-        private void Button_Click_Play(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_Click_DevelopMode(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_Click_Help(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_Click_Exit(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+     
     }
 }

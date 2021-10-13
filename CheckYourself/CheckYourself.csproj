@@ -61,6 +61,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Manager.cs" />
     <Compile Include="MainWindow.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -144,5 +145,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

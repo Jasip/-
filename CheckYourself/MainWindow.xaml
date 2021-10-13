@@ -8,63 +8,7 @@
         Title="ChecYourself" Width="1920" Height="1080"
         WindowState="Maximized"
         WindowStyle="SingleBorderWindow">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="10"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Background" Value="Transparent"></Setter>
-            <Setter Property="FontSize" Value="60"></Setter>
-            <Setter Property="BorderThickness" Value="0"></Setter>
-            <Setter Property="FontFamily" Value="Century Gothic"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="Transparent">
-                            <ContentPresenter/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Effect">
-                        <Setter.Value>
-                            <DropShadowEffect ShadowDepth="0" Color="White" Opacity="1" BlurRadius="20"></DropShadowEffect>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Century Gothic"></Setter>
-        </Style>
-    </Window.Resources>
-
     <Grid Background="#1b1b1b">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="600"/>
-            <RowDefinition Height="1.5*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="900"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" Grid.Row="1">
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Button Click="Button_Click_Play">Играть</Button>
-                <Button Click="Button_Click_DevelopMode">Режим Макета</Button>
-                <Button Click="Button_Click_Help">Правила</Button>
-                <Button Click="Button_Click_Exit">Выход</Button>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Column="1" Grid.Row="0">
-            <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
-        </Grid>
-        <Grid Grid.Row="0" Grid.Column="0">
-            <TextBlock Foreground="White" FontSize="60">Звук</TextBlock>
-        </Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0"></Frame>
     </Grid>
 </Window>
