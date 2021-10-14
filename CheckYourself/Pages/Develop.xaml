@@ -30,20 +30,20 @@
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <TextBox Width="600" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                <TextBox Grid.Row="1" Height="150"></TextBox>
+                <TextBox x:Name="NameVictor" Width="600" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                <TextBox x:Name="Quest" Grid.Row="1" Height="150"></TextBox>
                 <Grid Grid.Row="2">
-                    <TextBox Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
-                    <TextBox Width="500" Height="50" HorizontalAlignment="Right"></TextBox>
+                    <TextBox x:Name="Answer1" Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
+                    <TextBox x:Name="Answer2" Width="500" Height="50" HorizontalAlignment="Right"></TextBox>
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <TextBox Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
-                    <TextBox Width="500" Height="50" HorizontalAlignment="Right"></TextBox>
+                    <TextBox x:Name="Answer3" Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
+                    <TextBox x:Name="Answer4" Width="500" Height="50" HorizontalAlignment="Right"></TextBox>
                 </Grid>
 
                 <Grid Grid.Row="4">
-                    <TextBox Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
+                    <TextBox x:Name="Cost" Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
                 </Grid>
             </Grid>
             
@@ -68,8 +68,8 @@
 
         </Grid>
         <Grid Grid.Row="2">
-            <Button FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click_Add" Margin="60,0,0,0">Добавить вопрос</Button>
-            <Button FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_Create" Margin="0,0,60,0">Добавить викторину</Button>
+            <Button x:Name="AddQuest" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click_Add" Margin="60,0,0,0">Добавить вопрос</Button>
+            <Button x:Name="CreateVictor" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_Create" Margin="0,0,60,0">Добавить викторину</Button>
         </Grid>
     </Grid>
 </Page>
