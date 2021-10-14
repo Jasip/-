@@ -23,7 +23,7 @@
                 <ComboBox Height="50" Margin="20">
                     
                 </ComboBox>
-                <TextBox Height="50" Margin="20"></TextBox>
+                <TextBox x:Name="Name" Height="50" Margin="20"></TextBox>
                 <Button FontSize="50" Click="Button_Click_Play">Продолжить</Button>
             </StackPanel>
         </Grid>

@@ -20,9 +20,11 @@ namespace CheckYourself.Pages
     /// </summary>
     public partial class Result : Page
     {
-        public Result()
+        public Result(string name, int cost)
         {
             InitializeComponent();
+            Name.Text = name;
+            Cost.Text = cost.ToString() + " очков";
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)

@@ -31,7 +31,7 @@ namespace CheckYourself.Pages
 
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.Game());
+            Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text));
         }
     }
 }

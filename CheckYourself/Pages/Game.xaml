@@ -24,7 +24,7 @@
             <Button Grid.Column="0" FontSize="30" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Click="Button_Click_Back">EXIT</Button>
             <Button Grid.Column="1" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center">50/50</Button>
             <Button Grid.Column="2" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center">2 LIVE</Button>
-            <TextBlock Grid.Column="3" FontSize="30" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Center">NAME</TextBlock>
+            <TextBlock x:Name="ShowName" Grid.Column="3" FontSize="30" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Center">NAME</TextBlock>
         </Grid>
         <TextBlock Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,0,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
         <Grid Grid.Row="3">
@@ -41,8 +41,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="1">
-                <TextBlock x:Name="Count" FontSize="50" HorizontalAlignment="Left">Вопрос 2/10</TextBlock>
-                <TextBlock x:Name="SumCost" FontSize="50" HorizontalAlignment="Right">Ваши очки:100</TextBlock>
+                <TextBlock x:Name="Count" FontSize="50" HorizontalAlignment="Left">Вопрос 1/10</TextBlock>
+                <TextBlock x:Name="SumCost" FontSize="50" HorizontalAlignment="Right">Ваши очки:0</TextBlock>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30"></Border>
@@ -50,22 +50,22 @@
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Left" Width="700">
-                    <Button x:Name="Answer1" Grid.Row="3" FontSize="50" VerticalAlignment="Center">Бразилия</Button>
+                    <Button x:Name="Answer1" Grid.Row="3" FontSize="50" VerticalAlignment="Center" Click="Answer_Click">Бразилия</Button>
                 </Border>
                 
                 
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Right" Width="700">
-                    <Button x:Name="Answer2" Grid.Row="3" FontSize="50" VerticalAlignment="Center">Германия</Button>
+                    <Button x:Name="Answer2" Grid.Row="3" FontSize="50" VerticalAlignment="Center" Click="Answer_Click">Германия</Button>
                 </Border>
                 
             </Grid>
             <Grid Grid.Row="3" Grid.Column="1">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Left" Width="700">
-                    <Button x:Name="Answer3" Grid.Row="3" FontSize="50" VerticalAlignment="Center">Италия</Button>
+                    <Button x:Name="Answer3" Grid.Row="3" FontSize="50" VerticalAlignment="Center" Click="Answer_Click">Италия</Button>
                 </Border>
 
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Right" Width="700">
-                    <Button x:Name="Answer4" Grid.Row="3" FontSize="50" VerticalAlignment="Center">Аргентина</Button>
+                    <Button x:Name="Answer4" Grid.Row="3" FontSize="50" VerticalAlignment="Center" Click="Answer_Click">Аргентина</Button>
                 </Border>
             </Grid>
 
