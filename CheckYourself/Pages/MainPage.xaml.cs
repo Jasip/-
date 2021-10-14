@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ namespace CheckYourself.Pages
         }
         private void Button_Click_Exit(object sender, RoutedEventArgs e)
         {
-           
+            Process.GetCurrentProcess().Kill();
         }
     }
 }

@@ -24,5 +24,10 @@ namespace CheckYourself.Pages
         {
             InitializeComponent();
         }
+
+        private void Button_Click_Back(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
+        }
     }
 }
