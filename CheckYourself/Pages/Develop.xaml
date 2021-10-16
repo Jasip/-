@@ -50,17 +50,8 @@
             <Grid Grid.Column="2">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,0,0,0" HorizontalAlignment="Right" Width="500">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                            <Button FontSize="50">Вопрос 1</Button>
-                            <Button FontSize="50">Вопрос 2</Button>
-                            <Button FontSize="50">Вопрос 3</Button>
-                            <Button FontSize="50">Вопрос 4</Button>
-                            <Button FontSize="50">Вопрос 5</Button>
-                            <Button FontSize="50">Вопрос 6</Button>
-                            <Button FontSize="50">Вопрос 7</Button>
-                            <Button FontSize="50">Вопрос 8</Button>
-                            <Button FontSize="50">Вопрос 9</Button>
-                            <Button FontSize="50">Вопрос 10</Button>
+                        <StackPanel Name="SP_Questions" Orientation="Vertical" HorizontalAlignment="Left" Width="295">
+                            <Button HorizontalAlignment="Left" FontSize="50">Вопрос 1</Button>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>
@@ -69,7 +60,7 @@
         </Grid>
         <Grid Grid.Row="2">
             <Button x:Name="AddQuest" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click_Add" Margin="60,0,0,0">Добавить вопрос</Button>
-            <Button x:Name="CreateVictor" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_Create" Margin="0,0,60,0">Добавить викторину</Button>
+            <Button x:Name="CreateVictor" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_Create" Margin="0,0,60,0">Создать викторину</Button>
         </Grid>
     </Grid>
 </Page>

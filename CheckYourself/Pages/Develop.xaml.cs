@@ -30,13 +30,25 @@ namespace CheckYourself.Pages
         }
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
         public int count = 0;
+        int QuestNum = 2;
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.GoBack();
         }
+        
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            quests.Add(new Classes.Victorina(count,Quest.Text,Answer1.Text,Answer2.Text,Answer3.Text,Answer4.Text,int.Parse(Cost.Text)));
+            
+            Button button = new Button()
+            {
+                Content = "Вопрос " + QuestNum,
+                FontSize = 50,
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            SP_Questions.Children.Add(button);
+            QuestNum++;
+
+            //quests.Add(new Classes.Victorina(count,Quest.Text,Answer1.Text,Answer2.Text,Answer3.Text,Answer4.Text,int.Parse(Cost.Text)));
             NameVictor.IsEnabled = false;
             Quest.Text = null;
             Answer1.Text = null;
@@ -45,7 +57,7 @@ namespace CheckYourself.Pages
             Answer4.Text = null;
             Cost.Text = null;
             count++;
-            if (quests.Count == 10)
+            if (QuestNum == 11)
             {
                 Quest.IsEnabled = false;
                 Answer1.IsEnabled = false;

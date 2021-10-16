@@ -31,7 +31,9 @@
             <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="0">
-            <TextBlock Foreground="White" FontSize="30" Margin="10,10,0,0">Звук</TextBlock>
+            <Button Name="SoundButton" Margin="40,40,0,0" HorizontalAlignment="Left"  Height="45" VerticalAlignment="Top">
+                <Image Source="/CheckYourself;component/Resources/sound.png"></Image>
+            </Button>
         </Grid>
     </Grid>
 </Page>
