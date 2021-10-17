@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,9 @@ namespace CheckYourself.Pages
         public ChangeVictor()
         {
             InitializeComponent();
+            Begin();
         }
+        string dirName = @"Victors\";
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.GoBack();
@@ -31,7 +34,15 @@ namespace CheckYourself.Pages
 
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text));
+            Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text, Victors.SelectedItem.ToString()));
+        }
+        private void Begin ()
+        {
+            string[] dirs = Directory.GetFiles(dirName);
+            for (int i = 0; i < dirs.Length; i++)
+            {
+                Victors.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dirs[i]));
+            }
         }
     }
 }

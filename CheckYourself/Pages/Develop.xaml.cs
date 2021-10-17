@@ -48,7 +48,7 @@ namespace CheckYourself.Pages
             SP_Questions.Children.Add(button);
             QuestNum++;
 
-            //quests.Add(new Classes.Victorina(count,Quest.Text,Answer1.Text,Answer2.Text,Answer3.Text,Answer4.Text,int.Parse(Cost.Text)));
+            quests.Add(new Classes.Victorina(count,Quest.Text,Answer1.Text,Answer2.Text,Answer3.Text,Answer4.Text,int.Parse(Cost.Text)));
             NameVictor.IsEnabled = false;
             Quest.Text = null;
             Answer1.Text = null;
@@ -57,7 +57,7 @@ namespace CheckYourself.Pages
             Answer4.Text = null;
             Cost.Text = null;
             count++;
-            if (QuestNum == 11)
+            if (count == 10)
             {
                 Quest.IsEnabled = false;
                 Answer1.IsEnabled = false;
@@ -71,7 +71,7 @@ namespace CheckYourself.Pages
         }
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
-            string path = @"Victors\" + Name + ".dat";
+            string path = @"Victors\" + NameVictor.Text + ".dat";
 
             try
             {

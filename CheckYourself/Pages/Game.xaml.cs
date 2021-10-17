@@ -21,73 +21,87 @@ namespace CheckYourself.Pages
     /// </summary>
     public partial class Game : Page
     {
-        public Game(string username)
+        public Game(string username, string victor)
         {
             InitializeComponent();
-            Start();
             ShowName.Text = username;
+            path = @"Victors\" + victor + ".dat";
+            Start();
         }
+        string path;
         public Random rnd = new Random();
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
+        List<int> Numbers = new List<int>();
         int state = 0;
         string CorAnser;
         int cost = 0;
+        int n;
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
         }
         private void Start()
         {
-            string path = @"Victors\2.dat";
             using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
                 while (reader.PeekChar() > -1)
             quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
+            Random r = new Random();
+            int value;
+            for (int i = 0; i < 10;)
+            {
+                value = r.Next(10);
+                if (!Numbers.Contains(value))
+                {
+                    Numbers.Add(value);
+                    i++;
+                }
+            }
             Stage();
         }
         private void Stage()
         {
             SumCost.Text = "Ваши очки: " + cost.ToString();
-            if (state > 8)
+            if (state > 9)
             {
                 Classes.Manager.MainFrame.Navigate(new Pages.Result(ShowName.Text, cost));
             }
             else
             {
-
+                n = Numbers[state];
                 int corect = rnd.Next(1, 4);
                 if (corect == 1)
                 {
-                    Quest.Content = quests[state].quest;
-                    Answer1.Content = quests[state].answer1;
-                    Answer2.Content = quests[state].answer2;
-                    Answer3.Content = quests[state].answer3;
-                    Answer4.Content = quests[state].answer4;
+                    Quest.Content = quests[n].quest;
+                    Answer1.Content = quests[n].answer1;
+                    Answer2.Content = quests[n].answer2;
+                    Answer3.Content = quests[n].answer3;
+                    Answer4.Content = quests[n].answer4;
                 }
                 if (corect == 2)
                 {
-                    Quest.Content = quests[state].quest;
-                    Answer1.Content = quests[state].answer2;
-                    Answer2.Content = quests[state].answer3;
-                    Answer3.Content = quests[state].answer4;
-                    Answer4.Content = quests[state].answer1;
+                    Quest.Content = quests[n].quest;
+                    Answer1.Content = quests[n].answer2;
+                    Answer2.Content = quests[n].answer3;
+                    Answer3.Content = quests[n].answer4;
+                    Answer4.Content = quests[n].answer1;
                 }
                 if (corect == 3)
                 {
-                    Quest.Content = quests[state].quest;
-                    Answer1.Content = quests[state].answer2;
-                    Answer2.Content = quests[state].answer4;
-                    Answer3.Content = quests[state].answer3;
-                    Answer4.Content = quests[state].answer1;
+                    Quest.Content = quests[n].quest;
+                    Answer1.Content = quests[n].answer2;
+                    Answer2.Content = quests[n].answer4;
+                    Answer3.Content = quests[n].answer3;
+                    Answer4.Content = quests[n].answer1;
                 }
                 if (corect == 4)
                 {
-                    Quest.Content = quests[state].quest;
-                    Answer1.Content = quests[state].answer4;
-                    Answer2.Content = quests[state].answer3;
-                    Answer3.Content = quests[state].answer2;
-                    Answer4.Content = quests[state].answer1;
+                    Quest.Content = quests[n].quest;
+                    Answer1.Content = quests[n].answer4;
+                    Answer2.Content = quests[n].answer3;
+                    Answer3.Content = quests[n].answer2;
+                    Answer4.Content = quests[n].answer1;
                 }
-                CorAnser = quests[state].answer4;
+                CorAnser = quests[n].answer4;
             }
         }
 
@@ -96,13 +110,11 @@ namespace CheckYourself.Pages
             Button text = (Button)sender;
             if (text.Content.ToString() == CorAnser)
             {
-                state++;
-                cost = cost + quests[state].cost;
-                Count.Text = "Вопрос " + (state + 1).ToString() + "/10";
-                Stage();
+                cost = cost + quests[n].cost;
             }
-            else
-                MessageBox.Show("Неверно!");
+            Count.Text = "Вопрос " + (state + 1).ToString() + "/10";
+            state++;
+            Stage();
         }
     }
 }
