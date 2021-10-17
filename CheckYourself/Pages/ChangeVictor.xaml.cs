@@ -24,6 +24,7 @@ namespace CheckYourself.Pages
         public ChangeVictor()
         {
             InitializeComponent();
+            Victors.Foreground = Brushes.Black;
             Begin();
         }
         string dirName = @"Victors\";

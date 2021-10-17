@@ -32,10 +32,13 @@ namespace CheckYourself.Pages
         public Random rnd = new Random();
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
         List<int> Numbers = new List<int>();
+        List<Button> btns = new List<Button>();
+            
         int state = 0;
         string CorAnser;
         int cost = 0;
         int n;
+        bool help = false;
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
@@ -56,10 +59,18 @@ namespace CheckYourself.Pages
                     i++;
                 }
             }
+            btns.Add(Answer1);
+            btns.Add(Answer2);
+            btns.Add(Answer3);
+            btns.Add(Answer4);
             Stage();
         }
         private void Stage()
         {
+            for (int i = 0; i < 3; i++)
+            {
+                btns[i].Visibility = Visibility.Visible;
+            }
             SumCost.Text = "Ваши очки: " + cost.ToString();
             if (state > 9)
             {
@@ -108,13 +119,56 @@ namespace CheckYourself.Pages
         private void Answer_Click(object sender, RoutedEventArgs e)
         {
             Button text = (Button)sender;
-            if (text.Content.ToString() == CorAnser)
+            if (help)
             {
-                cost = cost + quests[n].cost;
+                if (text.Content.ToString() != CorAnser)
+                {
+                    text.Visibility = Visibility.Hidden;
+                    help = false;
+                }
+                else
+                {
+                    cost = cost + quests[n].cost;
+                    Count.Text = "Вопрос " + (state + 2).ToString() + "/10";
+                    state++;
+                    Stage();
+                    help = false;
+                }
             }
-            Count.Text = "Вопрос " + (state + 1).ToString() + "/10";
-            state++;
-            Stage();
+            else
+            {
+                if (text.Content.ToString() == CorAnser)
+                {
+                    cost = cost + quests[n].cost;
+                }
+                Count.Text = "Вопрос " + (state + 2).ToString() + "/10";
+                state++;
+                Stage();
+            }
+        }
+
+        private void Button_Click_help1(object sender, RoutedEventArgs e)
+        {
+            Random r = new Random();
+            int i = 0;
+            
+            while (i < 2)
+            {
+                int j = r.Next(0, 3);
+                if (btns[j].Content.ToString() != CorAnser)
+                {
+                    btns[j].Visibility = Visibility.Hidden;
+                    i++;
+                }
+            }
+            Button btn = (Button)sender;
+            btn.Visibility = Visibility.Hidden;
+        }
+        private void Button_Click_help2(object sender, RoutedEventArgs e)
+        {
+            help = true;
+            Button btn = (Button)sender;
+            btn.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -37,7 +37,11 @@ namespace CheckYourself.Pages
         }
         private void Button_Click_Edit(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.Develop());
+            Button btn = (Button)sender;
+            StackPanel st = (StackPanel)btn.Parent;
+            TextBlock tx = (TextBlock)st.Children[0];
+            string[] files = Directory.GetFiles(dirName, tx.Text + ".dat");
+            Classes.Manager.MainFrame.Navigate(new Pages.Develop(files[0]));
         }
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
@@ -66,8 +70,8 @@ namespace CheckYourself.Pages
                     Width = 300,
                     Height = 100,
                     HorizontalAlignment = HorizontalAlignment.Left,
-                    VerticalAlignment = VerticalAlignment.Top
-                };
+                    VerticalAlignment = VerticalAlignment.Top,
+                };  
                 victor.Children.Add(textBlock);
                 Button btnEdit = new Button()
                 {

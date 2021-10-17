@@ -31,19 +31,19 @@
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
                 <TextBox x:Name="NameVictor" Width="600" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                <TextBox x:Name="Quest" Grid.Row="1" Height="150"></TextBox>
+                <TextBox x:Name="Quest" Grid.Row="1" Height="150" LostFocus="Answer4_LostFocus"></TextBox>
                 <Grid Grid.Row="2">
-                    <TextBox x:Name="Answer1" Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
-                    <TextBox x:Name="Answer2" Width="500" Height="50" HorizontalAlignment="Right"></TextBox>
+                    <TextBox x:Name="Answer1" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer2" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus"></TextBox>
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <TextBox x:Name="Answer3" Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
-                    <TextBox x:Name="Answer4" Width="500" Height="50" HorizontalAlignment="Right"></TextBox>
+                    <TextBox x:Name="Answer3" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer4" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus"/>
                 </Grid>
 
                 <Grid Grid.Row="4">
-                    <TextBox x:Name="Cost" Width="500" Height="50" HorizontalAlignment="Left"></TextBox>
+                    <TextBox x:Name="Cost" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
                 </Grid>
             </Grid>
             
