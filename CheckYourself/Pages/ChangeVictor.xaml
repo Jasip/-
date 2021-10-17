@@ -10,15 +10,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="392"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
-            <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">Назад</Button>
+            <Image Source="/CheckYourself;component/Resources/logo.png" Width="819" Height="200" Margin="40,188,40,0" VerticalAlignment="Top"></Image>
+            <Button FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">Назад</Button>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,60,0,0">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,40,0,0">
                 <TextBlock FontSize="50">Выбрать викторину</TextBlock>
                 <ComboBox  x:Name="Victors" Margin="20"></ComboBox>
                 <TextBox x:Name="Name" Height="50" Margin="20"></TextBox>
