@@ -33,8 +33,10 @@ namespace CheckYourself.Pages
             InitializeComponent();
             AddQuest.IsEnabled = false;
             path = nameVictor;
+            editmode = false;
             EditMode();
         }
+        bool editmode;
         string path;
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
         public int count = 0;
@@ -54,6 +56,7 @@ namespace CheckYourself.Pages
                 FontSize = 50,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
+            button.Click += Button_Click_SelectQuest;
             SP_Questions.Children.Add(button);
             QuestNum++;
 
@@ -128,13 +131,26 @@ namespace CheckYourself.Pages
         }
         private void SelectQuest(int id)
         {
-            ID = id;
-            Quest.Text = quests[id].quest;
-            Answer1.Text = quests[id].answer1;
-            Answer2.Text = quests[id].answer2;
-            Answer3.Text = quests[id].answer3;
-            Answer4.Text = quests[id].answer4;
-            Cost.Text = quests[id].cost.ToString();
+            try
+            {
+                ID = id;
+                Quest.Text = quests[id].quest;
+                Answer1.Text = quests[id].answer1;
+                Answer2.Text = quests[id].answer2;
+                Answer3.Text = quests[id].answer3;
+                Answer4.Text = quests[id].answer4;
+                Cost.Text = quests[id].cost.ToString();
+            }
+            catch
+            {
+                Quest.Text = null;
+                Answer1.Text = null;
+                Answer2.Text = null;
+                Answer3.Text = null;
+                Answer4.Text = null;
+                Cost.Text = null;
+            }
+            
         }
         private void Button_Click_SelectQuest(object sender, RoutedEventArgs e)
         {
@@ -142,18 +158,21 @@ namespace CheckYourself.Pages
             string text = btn.Content.ToString();
             string[] strings;
             strings = text.Split(' ');
-            SelectQuest(Convert.ToInt32(strings[1].ToString()));
+            SelectQuest(Convert.ToInt32(strings[1].ToString())-1);
         }
 
 
         private void Answer4_LostFocus(object sender, RoutedEventArgs e)
         {
-            quests[ID].quest = Quest.Text;
-            quests[ID].answer1 = Answer1.Text;
-            quests[ID].answer2 = Answer2.Text;
-            quests[ID].answer3 = Answer3.Text;
-            quests[ID].answer4 = Answer4.Text;
-            quests[ID].cost = Int32.Parse(Cost.Text);
+            if (editmode)
+            {
+                quests[ID].quest = Quest.Text;
+                quests[ID].answer1 = Answer1.Text;
+                quests[ID].answer2 = Answer2.Text;
+                quests[ID].answer3 = Answer3.Text;
+                quests[ID].answer4 = Answer4.Text;
+                quests[ID].cost = Int32.Parse(Cost.Text);
+            }
         }
     }
 }
