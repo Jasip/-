@@ -73,6 +73,7 @@ namespace CheckYourself.Pages
                 Answer4.Text = null;
                 Cost.Text = null;
                 count++;
+                var bc = new BrushConverter();
                 if (count == 10)
                 {
                     Quest.IsEnabled = false;
@@ -86,10 +87,15 @@ namespace CheckYourself.Pages
                 }
                 else
                 {
+                    for (int i = 0; i < SP_Questions.Children.Count; i++)
+                    {
+                        (SP_Questions.Children[i] as Button).Foreground = Brushes.White;
+                    }
                     Button button = new Button()
                     {
                         Content = "Вопрос " + QuestNum,
                         FontSize = 50,
+                        Foreground= (Brush)bc.ConvertFrom("#1266cc"),
                         HorizontalAlignment = HorizontalAlignment.Left
                     };
                     button.Click += Button_Click_SelectQuest;
@@ -118,6 +124,7 @@ namespace CheckYourself.Pages
                     writer.Close();
                 }
                 MessageBox.Show("Викторина создана");
+                Classes.Manager.MainFrame.Navigate(new Pages.ChangeDevelop());
             }
             catch
             {
@@ -169,15 +176,21 @@ namespace CheckYourself.Pages
             }
 
         }
+
         private void Button_Click_SelectQuest(object sender, RoutedEventArgs e)
         {
-            
+            for(int i=0; i<SP_Questions.Children.Count;i++)
+            {
+                (SP_Questions.Children[i] as Button).Foreground = Brushes.White;
+            }           
             Button btn = (Button)sender;     
             string text = btn.Content.ToString();
             string[] strings;
             strings = text.Split(' ');
             SelectQuest(Convert.ToInt32(strings[1].ToString()) - 1);
-            (sender as Button).Foreground = Brushes.Green;
+
+            var bc = new BrushConverter();
+            (sender as Button).Foreground = (Brush)bc.ConvertFrom("#1266cc");
         }
 
 
