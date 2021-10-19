@@ -171,11 +171,13 @@ namespace CheckYourself.Pages
         }
         private void Button_Click_SelectQuest(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
+            
+            Button btn = (Button)sender;     
             string text = btn.Content.ToString();
             string[] strings;
             strings = text.Split(' ');
             SelectQuest(Convert.ToInt32(strings[1].ToString()) - 1);
+            (sender as Button).Foreground = Brushes.Green;
         }
 
 
@@ -191,7 +193,5 @@ namespace CheckYourself.Pages
                 quests[ID].cost = Int32.Parse(Cost.Text);
             }
         }
-
-
     }
 }

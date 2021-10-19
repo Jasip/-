@@ -73,6 +73,7 @@ namespace CheckYourself.Pages
                     FontSize = 50,
                     Width = 400,
                     Height = 120,
+                    Foreground=Brushes.White,
                     TextWrapping = TextWrapping.Wrap,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,

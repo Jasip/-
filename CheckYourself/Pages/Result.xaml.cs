@@ -24,7 +24,7 @@ namespace CheckYourself.Pages
         {
             InitializeComponent();
             Name.Text = name;
-            Cost.Text = cost.ToString() + " очков";
+            Cost.Text = "Ваши очки: "+cost.ToString();
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
