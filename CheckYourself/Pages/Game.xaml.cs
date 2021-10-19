@@ -33,7 +33,7 @@ namespace CheckYourself.Pages
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
         List<int> Numbers = new List<int>();
         List<Button> btns = new List<Button>();
-            
+
         int state = 0;
         string CorAnser;
         int cost = 0;
@@ -45,9 +45,11 @@ namespace CheckYourself.Pages
         }
         private void Start()
         {
+            try
+            {
             using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
                 while (reader.PeekChar() > -1)
-            quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
+                    quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
             Random r = new Random();
             int value;
             for (int i = 0; i < 10;)
@@ -64,6 +66,12 @@ namespace CheckYourself.Pages
             btns.Add(Answer3);
             btns.Add(Answer4);
             Stage();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка в чтении файла!");
+                
+            }
         }
         private void Stage()
         {
@@ -151,11 +159,12 @@ namespace CheckYourself.Pages
         {
             Random r = new Random();
             int i = 0;
-            
+            int j = 0;
+
             while (i < 2)
             {
-                int j = r.Next(0, 3);
-                if (btns[j].Content.ToString() != CorAnser)
+                j = r.Next(0, 3);
+                if (btns[j].Content.ToString() != CorAnser && (btns[j].IsVisible == true))
                 {
                     btns[j].Visibility = Visibility.Hidden;
                     i++;

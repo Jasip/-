@@ -10,17 +10,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="324"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
+            <Image Source="/CheckYourself;component/Resources/logo.png" Width="820" HorizontalAlignment="Center" Height="200" Margin="0,120,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2"></Image>
         </Grid>
         <Grid Grid.Row="1">
-            <TextBlock VerticalAlignment="Top" Foreground="Blue" FontSize="50" HorizontalAlignment="Center" Margin="0,50,0,0">Конец игры</TextBlock>
-            <TextBlock x:Name="Name" VerticalAlignment="Top" Foreground="Blue" FontSize="50" HorizontalAlignment="Center" Margin="0,200,0,0">Данил</TextBlock>
-            <TextBlock x:Name="Cost" VerticalAlignment="Top" Foreground="Blue" FontSize="50" HorizontalAlignment="Center" Margin="0,300,0,0">10000 очков</TextBlock>
-            <Button Grid.Column="0" FontSize="50" HorizontalAlignment="Center" Margin="30,0,0,0" VerticalAlignment="Bottom" Click="Button_Click_Back">Главное меню</Button>
+            <TextBlock VerticalAlignment="Top" Foreground="#1266cc" FontSize="70" HorizontalAlignment="Center" Margin="0,0,0,0">Конец игры</TextBlock>
+            <TextBlock x:Name="Name" VerticalAlignment="Top" Foreground="#1266cc" FontSize="70" HorizontalAlignment="Center" Margin="0,150,0,0">Данил</TextBlock>
+            <TextBlock x:Name="Cost" VerticalAlignment="Top" Foreground="#1266cc" FontSize="70" HorizontalAlignment="Center" Margin="0,230,0,0">10000 очков</TextBlock>
+            <Button Grid.Column="0" FontSize="60" HorizontalAlignment="Center" Margin="0,0,0,70" VerticalAlignment="Bottom" Click="Button_Click_Back">Главное меню</Button>
         </Grid>
     </Grid>
 </Page>

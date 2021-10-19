@@ -9,6 +9,8 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#1b1b1b">
+        <!--<Viewbox Stretch="Uniform">-->
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0"></Frame>
+        <!--</Viewbox>-->
     </Grid>
 </Window>

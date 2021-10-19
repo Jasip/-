@@ -10,26 +10,25 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="392"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
-            <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">Назад</Button>
+            <Image Source="/CheckYourself;component/Resources/logo.png" Width="819" Height="200" Margin="40,188,40,0" VerticalAlignment="Top"></Image>
+            <Button VerticalAlignment="Top" FontSize="40" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">Назад</Button>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,60,0,0">
-                <TextBlock FontSize="50" Foreground="White">Выбрать викторину</TextBlock>
-                <ComboBox  x:Name="Victors" Margin="20">
-                    <ComboBox.Resources>
+                <TextBlock Foreground="White" FontSize="50">Выбрать викторину</TextBlock>
+                <ComboBox x:Name="Victors" Margin="20">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Foreground" Value="Black" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
 
-                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#7F054353" />
-
-                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#7F054353" />
-
-                    </ComboBox.Resources>
                 </ComboBox>
-                <TextBox x:Name="Name" Height="50" Margin="20"></TextBox>
+                <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Имя" Height="50" Margin="20"></TextBox>
                 <Button FontSize="50" Click="Button_Click_Play">Продолжить</Button>
             </StackPanel>
         </Grid>

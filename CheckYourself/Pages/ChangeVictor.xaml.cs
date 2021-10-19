@@ -35,11 +35,17 @@ namespace CheckYourself.Pages
 
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text, Victors.SelectedItem.ToString()));
+            if (Victors.SelectedIndex >= 0)
+                if (Name.Text.Length > 0)
+                    Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text, Victors.SelectedItem.ToString()));
+                else
+                    MessageBox.Show("Укажите ник для начала игры");
+            else
+                MessageBox.Show("Выберите викторину для начала игры");
         }
         private void Begin ()
         {
-            string[] dirs = Directory.GetFiles(dirName);
+            string[] dirs = Directory.GetFiles(dirName,"*.dat");
             for (int i = 0; i < dirs.Length; i++)
             {
                 Victors.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dirs[i]));

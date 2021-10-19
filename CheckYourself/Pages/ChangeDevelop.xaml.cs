@@ -45,53 +45,90 @@ namespace CheckYourself.Pages
         }
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            StackPanel st = (StackPanel)btn.Parent;
-            TextBlock tx = (TextBlock)st.Children[0];
-            string [] files = Directory.GetFiles(dirName, tx.Text+".dat");
-            File.Delete(files[0]);
-            Victors.Children.Remove(st);
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить викторину?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                Button btn = (Button)sender;
+                StackPanel st = (StackPanel)btn.Parent;
+                TextBlock tx = (TextBlock)st.Children[0];
+                string[] files = Directory.GetFiles(dirName, tx.Text + ".dat");
+                File.Delete(files[0]);
+                Victors.Children.Remove(st);
+            }           
         }
         private void Begin()
         {
             
-            string[] dirs = Directory.GetFiles(dirName);
+            string[] dirs = Directory.GetFiles(dirName,"*.dat");
             for (int i = 0; i < dirs.Length; i++)
             {
                 StackPanel victor = new StackPanel()
                 {
+                    Width = 1700,
                     Orientation = Orientation.Horizontal,
                 };
                 Victors.Children.Add(victor);
+
+
+
                 TextBlock textBlock = new TextBlock()
                 {
                     Text = System.IO.Path.GetFileNameWithoutExtension(dirs[i]),
                     FontSize = 50,
-                    Width = 300,
-                    Height = 100,
+                    Width = 400,
+                    Height = 120,
+                    Foreground=Brushes.White,
+                    TextWrapping = TextWrapping.Wrap,
                     HorizontalAlignment = HorizontalAlignment.Left,
                     VerticalAlignment = VerticalAlignment.Top,
-                };  
+                }; 
                 victor.Children.Add(textBlock);
+
+
+
+                Image img1 = new Image()
+                {
+                    Width = 50,
+                    Height = 50,
+                };
+                img1.Source = new BitmapImage(new Uri(@"/CheckYourself;component/Resources/change.png", UriKind.RelativeOrAbsolute));
+               
+                
+                
+                Image img2 = new Image()
+                {
+                    Width = 50,
+                    Height = 50,
+                };
+                img2.Source = new BitmapImage(new Uri(@"/CheckYourself;component/Resources/delete.png", UriKind.RelativeOrAbsolute));
+
+
+
                 Button btnEdit = new Button()
                 {
                     Content = "Редактировать",
                     FontSize = 50,
-                    HorizontalAlignment = HorizontalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Right,
                     VerticalAlignment = VerticalAlignment.Top,
-                };  btnEdit.Margin = new Thickness(650, 0, 0, 0);
+                };  
+                btnEdit.Margin = new Thickness(1000, 0, 0, 0);
                 btnEdit.Click += Button_Click_Edit;
                 victor.Children.Add(btnEdit);
+                btnEdit.Content = img1;
+
+
+
                 Button btnDel = new Button()
                 {
                     Content = "Удалить",
                     FontSize = 50,
                     HorizontalAlignment = HorizontalAlignment.Right,
                     VerticalAlignment = VerticalAlignment.Top
-                };  btnDel.Margin = new Thickness(50, 0, 0, 0);
+                };  
+                btnDel.Margin = new Thickness(50, 0, 0, 0);
                 victor.Children.Add(btnDel);
                 btnDel.Click += Button_Click_Delete;
-
+                btnDel.Content = img2;
             }
         }
     }

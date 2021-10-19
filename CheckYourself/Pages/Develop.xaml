@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">Назад</Button>
+        <Button FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">Назад</Button>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60"/>
@@ -30,21 +30,20 @@
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="NameVictor" Width="600" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                <TextBox x:Name="NameVictor" Style="{StaticResource placeHolder}" Tag="Название викторины" Width="600" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
                 <TextBox x:Name="Quest" Grid.Row="1" Height="150" LostFocus="Answer4_LostFocus"></TextBox>
                 <Grid Grid.Row="2">
-                    <TextBox x:Name="Answer1" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
-                    <TextBox x:Name="Answer2" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer1" Style="{StaticResource placeHolder}" Tag="Вариант ответа" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer2" Style="{StaticResource placeHolder}" Tag="Вариант ответа" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus"></TextBox>
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <TextBox x:Name="Answer3" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
-                    <TextBox x:Name="Answer4" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus">
-                    </TextBox>
+                    <TextBox x:Name="Answer3" Style="{StaticResource placeHolder}" Tag="Вариант ответа" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer4" Style="{StaticResource placeHolder}" Tag="Правильный ответ" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus" BorderThickness="5" BorderBrush="Green"/>
                 </Grid>
 
                 <Grid Grid.Row="4">
-                    <TextBox x:Name="Cost" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Cost" Style="{StaticResource placeHolder}" Tag="Количество очков" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
                 </Grid>
             </Grid>
             
@@ -52,7 +51,7 @@
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,0,0,0" HorizontalAlignment="Right" Width="500">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="SP_Questions" Orientation="Vertical" HorizontalAlignment="Left" Width="295">
-                            <Button HorizontalAlignment="Left" FontSize="50" Click="Button_Click_SelectQuest">Вопрос 1</Button>
+                            <Button HorizontalAlignment="Left" FontSize="50">Вопрос 1</Button>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>
@@ -60,8 +59,8 @@
 
         </Grid>
         <Grid Grid.Row="2">
-            <Button x:Name="AddQuest" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click_Add" Margin="60,0,0,0">Добавить вопрос</Button>
-            <Button x:Name="CreateVictor" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_Create" Margin="0,0,60,0">Создать викторину</Button>
+            <Button x:Name="AddQuest" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click_Add" Margin="60,0,0,0">Добавить вопрос</Button>
+            <Button x:Name="CreateVictor" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_Create" Margin="0,0,60,0">Создать викторину</Button>
         </Grid>
     </Grid>
 </Page>
