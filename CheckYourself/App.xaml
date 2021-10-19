@@ -10,7 +10,7 @@
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="FontSize" Value="60"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
-            <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="FontFamily" Value="/CheckYourself;component/Resources/#Izax"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
@@ -32,7 +32,7 @@
             </Style.Triggers>
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="FontFamily" Value="/CheckYourself;component/Resources/#Izax"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
         </Style>
         <Style TargetType="TextBox">

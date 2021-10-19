@@ -109,6 +109,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\font.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -149,6 +150,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\50_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

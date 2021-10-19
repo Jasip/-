@@ -10,9 +10,9 @@
 
     <Grid Background="#1b1b1b">
         <Grid.RowDefinitions>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="600"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="580"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -20,15 +20,15 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Grid.Row="1">
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,60,0,0">
-                <Button Click="Button_Click_Play">Играть</Button>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="238,4,238,0">
+                <Button Click="Button_Click_Play" >Играть</Button>
                 <Button Click="Button_Click_DevelopMode">Режим Макета</Button>
                 <Button Click="Button_Click_Help">Правила</Button>
                 <Button Click="Button_Click_Exit">Выход</Button>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="0">
-            <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
+            <Image Source="/CheckYourself;component/Resources/logo.png" Width="819" Height="200" Margin="40,188,40,0" VerticalAlignment="Top"></Image>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="0">
             <Button Name="SoundButton" Margin="40,40,0,0" HorizontalAlignment="Left"  Height="45" VerticalAlignment="Top">
