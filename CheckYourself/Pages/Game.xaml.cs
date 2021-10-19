@@ -163,7 +163,7 @@ namespace CheckYourself.Pages
             while (i < 2)
             {
                 int j = r.Next(0, 3);
-                if (btns[j].Content.ToString() != CorAnser)
+                if (btns[j].Content.ToString() != CorAnser && (btns[j].IsVisible==true))
                 {
                     btns[j].Visibility = Visibility.Hidden;
                     i++;
