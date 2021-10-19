@@ -24,11 +24,11 @@
             <Button Name="btn_back" Grid.Column="0" FontSize="30" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Click="Button_Click_Back">
                 <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
             </Button>
-            <Button Grid.Column="1" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Button_Click_help1" ToolTip="Скрывает два неправильных вопроса">
+            <Button Grid.Column="1" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" ToolTip="Оставляет участнику только один правильный и один неправильный вариант. Это озночает, что у него есть шанс 50/50. " Click="Button_Click_help1">
                 <Image Source="/CheckYourself;component/Resources/50_50.png" Width="200" Height="50" VerticalAlignment="Top"></Image>
             </Button>
             <Button Grid.Column="2"  HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Button_Click_help2">
-                <Image Source="/CheckYourself;component/Resources/Heart.png" Width="75" Height="60" VerticalAlignment="Top"  ToolTip="Дает вам две попытки ответить на вопрос вместо одной"></Image>
+                <Image Source="/CheckYourself;component/Resources/Heart.png" Width="75" Height="60" VerticalAlignment="Top"  ToolTip="Дает участнику ошибиться один раз без перехода на следующий вопрос. Это значит, что у него есть второй шанс. "></Image>
             </Button>
             <TextBlock Foreground="White" x:Name="ShowName" Grid.Column="3" FontSize="40" HorizontalAlignment="Right" Margin="0,40,30,0" VerticalAlignment="Top">NAME</TextBlock>
         </Grid>
@@ -74,8 +74,6 @@
                     <Button x:Name="Answer4" Grid.Row="3" FontSize="50" VerticalAlignment="Center" Click="Answer_Click">Аргентина</Button>
                 </Border>
             </Grid>
-
         </Grid>
-
     </Grid>
 </Page>

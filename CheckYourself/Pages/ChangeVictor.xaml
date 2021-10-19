@@ -15,9 +15,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Image Source="/CheckYourself;component/Resources/logo.png" Width="819" Height="200" Margin="40,188,40,0" VerticalAlignment="Top"></Image>
-            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">
-                <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
-            </Button>
+            <Button VerticalAlignment="Top" FontSize="40" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">Назад</Button>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,60,0,0">
