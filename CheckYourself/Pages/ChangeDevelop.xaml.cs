@@ -40,7 +40,7 @@ namespace CheckYourself.Pages
             Button btn = (Button)sender;
             StackPanel st = (StackPanel)btn.Parent;
             TextBlock tx = (TextBlock)st.Children[0];
-            string[] files = Directory.GetFiles(dirName, tx.Text + "*.dat");
+            string[] files = Directory.GetFiles(dirName, tx.Text + ".dat");
             Classes.Manager.MainFrame.Navigate(new Pages.Develop(files[0]));
         }
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace CheckYourself.Pages
             Button btn = (Button)sender;
             StackPanel st = (StackPanel)btn.Parent;
             TextBlock tx = (TextBlock)st.Children[0];
-            string [] files = Directory.GetFiles(dirName, tx.Text + "*.dat");
+            string [] files = Directory.GetFiles(dirName, tx.Text + ".dat");
             File.Delete(files[0]);
             Victors.Children.Remove(st);
         }

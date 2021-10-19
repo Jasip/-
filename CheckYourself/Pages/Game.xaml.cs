@@ -69,8 +69,8 @@ namespace CheckYourself.Pages
             }
             catch
             {
-                Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
                 MessageBox.Show("Ошибка в чтении файла!");
+                
             }
         }
         private void Stage()
