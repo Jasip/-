@@ -99,9 +99,8 @@ namespace CheckYourself.Pages
             }
         }
         private void Button_Click_Create(object sender, RoutedEventArgs e)
-        {
-            string path = @"Victors\" + NameVictor.Text + ".dat";
-
+        {        
+            string path = @"Victors\" + NameVictor.Text + ".dat";    
             try
             {
                 using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Create)))
@@ -118,6 +117,7 @@ namespace CheckYourself.Pages
                     }
                     writer.Close();
                 }
+                MessageBox.Show("Викторина создана");
             }
             catch
             {

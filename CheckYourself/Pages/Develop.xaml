@@ -14,9 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">
-            <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
-        </Button>
+        <Button FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">Назад</Button>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60"/>

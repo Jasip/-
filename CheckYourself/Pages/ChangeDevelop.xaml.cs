@@ -45,12 +45,16 @@ namespace CheckYourself.Pages
         }
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            StackPanel st = (StackPanel)btn.Parent;
-            TextBlock tx = (TextBlock)st.Children[0];
-            string [] files = Directory.GetFiles(dirName, tx.Text + ".dat");
-            File.Delete(files[0]);
-            Victors.Children.Remove(st);
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить викторину?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                Button btn = (Button)sender;
+                StackPanel st = (StackPanel)btn.Parent;
+                TextBlock tx = (TextBlock)st.Children[0];
+                string[] files = Directory.GetFiles(dirName, tx.Text + ".dat");
+                File.Delete(files[0]);
+                Victors.Children.Remove(st);
+            }           
         }
         private void Begin()
         {

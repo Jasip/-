@@ -49,7 +49,8 @@
         </Style>
         <Style TargetType="ToolTip">
             <Setter Property="Background" Value="Transparent"></Setter>
-            <Setter Property="FontSize" Value="40"></Setter>
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
         </Style>
 
         <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
