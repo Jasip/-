@@ -14,13 +14,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">
+            <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">
                 <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
             </Button>
-            <TextBlock FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">Правила</TextBlock>
+            <TextBlock Foreground="White" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">Правила</TextBlock>
         </Grid>
         <Grid Grid.Row="1">
-            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="80,60,80,0" FontSize="50" VerticalAlignment="Top" >Игра проверь себя - этто конкурс викторина, в котором участиинк должен правильно ответить на ряд вопросов с несколькими вариантами ответов чтобы получить очки. Всего 10 вопросов, каждый вопрос стоит определенной суммы очков, участник не имеет никаких временных ограничений для предоставления ответа. Учатсник также получает два вида подсказок, чтобы помочь себе, если он застрял на конкретном вопросе.</TextBlock>
+            <TextBlock Foreground="White" TextWrapping="Wrap" TextAlignment="Justify" Margin="80,60,80,0" FontSize="50" VerticalAlignment="Top" >Игра проверь себя - этто конкурс викторина, в котором участиинк должен правильно ответить на ряд вопросов с несколькими вариантами ответов чтобы получить очки. Всего 10 вопросов, каждый вопрос стоит определенной суммы очков, участник не имеет никаких временных ограничений для предоставления ответа. Учатсник также получает два вида подсказок, чтобы помочь себе, если он застрял на конкретном вопросе.</TextBlock>
         </Grid>
 
     </Grid>

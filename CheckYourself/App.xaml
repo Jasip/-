@@ -33,7 +33,7 @@
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="/CheckYourself;component/Resources/#Izax"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
+           
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="40"></Setter>
@@ -82,6 +82,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
 
     </Application.Resources>
 </Application>

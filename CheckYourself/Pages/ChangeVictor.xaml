@@ -15,14 +15,20 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Image Source="/CheckYourself;component/Resources/logo.png" Width="819" Height="200" Margin="40,188,40,0" VerticalAlignment="Top"></Image>
-            <Button FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">
+            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">
                 <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
             </Button>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,60,0,0">
-                <TextBlock FontSize="50">Выбрать викторину</TextBlock>
-                <ComboBox  x:Name="Victors" Margin="20" >
+                <TextBlock Foreground="White" FontSize="50">Выбрать викторину</TextBlock>
+                <ComboBox x:Name="Victors" Margin="20">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Foreground" Value="Black" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+
                 </ComboBox>
                 <TextBox x:Name="Name" Style="{StaticResource placeHolder}" Tag="Имя" Height="50" Margin="20"></TextBox>
                 <Button FontSize="50" Click="Button_Click_Play">Продолжить</Button>
