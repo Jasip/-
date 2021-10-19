@@ -33,8 +33,10 @@ namespace CheckYourself.Pages
             InitializeComponent();
             AddQuest.IsEnabled = false;
             path = nameVictor;
+            editmode = false;
             EditMode();
         }
+        bool editmode;
         string path;
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
         public int count = 0;
@@ -44,38 +46,52 @@ namespace CheckYourself.Pages
         {
             Classes.Manager.MainFrame.GoBack();
         }
-        
+
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            
-            Button button = new Button()
+            bool ok = false;
+            if (NameVictor.Text.Length > 0)
+                if (Quest.Text.Length > 0)
+                    if (Answer1.Text.Length > 0 && Answer2.Text.Length > 0 && Answer3.Text.Length > 0 && Answer4.Text.Length > 0)
+                        if (Cost.Text.Length > 0)
+                            try { Convert.ToInt32(Cost.Text);if (Convert.ToInt32(Cost.Text) < 1) MessageBox.Show("Кол-во очков не может быть меньше нуля!"); else ok = true; } 
+                            catch { MessageBox.Show("Укажите кол-во очков правильно"); }
+                        else MessageBox.Show("Укажите стоимость вопроса");
+                    else MessageBox.Show("Укажите все четыре ответа на ваш вопрос");
+                else MessageBox.Show("Укажите вопрос");
+            else MessageBox.Show("Укажите название викторины");
+            if (ok)
             {
-                Content = "Вопрос " + QuestNum,
-                FontSize = 50,
-                HorizontalAlignment = HorizontalAlignment.Left
-            };
-            SP_Questions.Children.Add(button);
-            QuestNum++;
+                Button button = new Button()
+                {
+                    Content = "Вопрос " + QuestNum,
+                    FontSize = 50,
+                    HorizontalAlignment = HorizontalAlignment.Left
+                };
+                button.Click += Button_Click_SelectQuest;
+                SP_Questions.Children.Add(button);
+                QuestNum++;
 
-            quests.Add(new Classes.Victorina(count,Quest.Text,Answer1.Text,Answer2.Text,Answer3.Text,Answer4.Text,int.Parse(Cost.Text)));
-            NameVictor.IsEnabled = false;
-            Quest.Text = null;
-            Answer1.Text = null;
-            Answer2.Text = null;
-            Answer3.Text = null;
-            Answer4.Text = null;
-            Cost.Text = null;
-            count++;
-            if (count == 10)
-            {
-                Quest.IsEnabled = false;
-                Answer1.IsEnabled = false;
-                Answer2.IsEnabled = false;
-                Answer3.IsEnabled = false;
-                Answer4.IsEnabled = false;
-                Cost.IsEnabled = false;
-                CreateVictor.IsEnabled = true;
-                AddQuest.IsEnabled = false;
+                quests.Add(new Classes.Victorina(count, Quest.Text, Answer1.Text, Answer2.Text, Answer3.Text, Answer4.Text, int.Parse(Cost.Text)));
+                NameVictor.IsEnabled = false;
+                Quest.Text = null;
+                Answer1.Text = null;
+                Answer2.Text = null;
+                Answer3.Text = null;
+                Answer4.Text = null;
+                Cost.Text = null;
+                count++;
+                if (count == 10)
+                {
+                    Quest.IsEnabled = false;
+                    Answer1.IsEnabled = false;
+                    Answer2.IsEnabled = false;
+                    Answer3.IsEnabled = false;
+                    Answer4.IsEnabled = false;
+                    Cost.IsEnabled = false;
+                    CreateVictor.IsEnabled = true;
+                    AddQuest.IsEnabled = false;
+                }
             }
         }
         private void Button_Click_Create(object sender, RoutedEventArgs e)
@@ -97,7 +113,7 @@ namespace CheckYourself.Pages
                         writer.Write(s.cost);
                     }
                     writer.Close();
-                }  
+                }
             }
             catch
             {
@@ -128,13 +144,26 @@ namespace CheckYourself.Pages
         }
         private void SelectQuest(int id)
         {
-            ID = id;
-            Quest.Text = quests[id].quest;
-            Answer1.Text = quests[id].answer1;
-            Answer2.Text = quests[id].answer2;
-            Answer3.Text = quests[id].answer3;
-            Answer4.Text = quests[id].answer4;
-            Cost.Text = quests[id].cost.ToString();
+            try
+            {
+                ID = id;
+                Quest.Text = quests[id].quest;
+                Answer1.Text = quests[id].answer1;
+                Answer2.Text = quests[id].answer2;
+                Answer3.Text = quests[id].answer3;
+                Answer4.Text = quests[id].answer4;
+                Cost.Text = quests[id].cost.ToString();
+            }
+            catch
+            {
+                Quest.Text = null;
+                Answer1.Text = null;
+                Answer2.Text = null;
+                Answer3.Text = null;
+                Answer4.Text = null;
+                Cost.Text = null;
+            }
+
         }
         private void Button_Click_SelectQuest(object sender, RoutedEventArgs e)
         {
@@ -142,18 +171,21 @@ namespace CheckYourself.Pages
             string text = btn.Content.ToString();
             string[] strings;
             strings = text.Split(' ');
-            SelectQuest(Convert.ToInt32(strings[1].ToString()));
+            SelectQuest(Convert.ToInt32(strings[1].ToString()) - 1);
         }
 
 
         private void Answer4_LostFocus(object sender, RoutedEventArgs e)
         {
-            quests[ID].quest = Quest.Text;
-            quests[ID].answer1 = Answer1.Text;
-            quests[ID].answer2 = Answer2.Text;
-            quests[ID].answer3 = Answer3.Text;
-            quests[ID].answer4 = Answer4.Text;
-            quests[ID].cost = Int32.Parse(Cost.Text);
+            if (editmode)
+            {
+                quests[ID].quest = Quest.Text;
+                quests[ID].answer1 = Answer1.Text;
+                quests[ID].answer2 = Answer2.Text;
+                quests[ID].answer3 = Answer3.Text;
+                quests[ID].answer4 = Answer4.Text;
+                quests[ID].cost = Int32.Parse(Cost.Text);
+            }
         }
     }
 }

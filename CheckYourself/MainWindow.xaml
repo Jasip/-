@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ChecYourself" Width="1920" Height="1080"
         WindowState="Maximized"
-        WindowStyle="SingleBorderWindow">
+        WindowStyle="None">
     <Grid Background="#1b1b1b">
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0"></Frame>
     </Grid>

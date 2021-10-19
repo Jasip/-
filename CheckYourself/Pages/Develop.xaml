@@ -39,7 +39,7 @@
 
                 <Grid Grid.Row="3">
                     <TextBox x:Name="Answer3" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
-                    <TextBox x:Name="Answer4" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus"/>
+                    <TextBox x:Name="Answer4" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus" BorderThickness="5" BorderBrush="Green"/>
                 </Grid>
 
                 <Grid Grid.Row="4">
@@ -51,7 +51,7 @@
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,0,0,0" HorizontalAlignment="Right" Width="500">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="SP_Questions" Orientation="Vertical" HorizontalAlignment="Left" Width="295">
-                            <Button HorizontalAlignment="Left" FontSize="50">Вопрос 1</Button>
+                            <Button HorizontalAlignment="Left" FontSize="50" Click="Button_Click_SelectQuest">Вопрос 1</Button>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>

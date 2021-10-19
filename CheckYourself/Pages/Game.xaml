@@ -21,10 +21,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" FontSize="30" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Click="Button_Click_Back">EXIT</Button>
-            <Button Grid.Column="1" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center">50/50</Button>
-            <Button Grid.Column="2" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center">2 LIVE</Button>
-            <TextBlock x:Name="ShowName" Grid.Column="3" FontSize="30" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Center">NAME</TextBlock>
+            <Button Grid.Column="0" FontSize="30" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Click="Button_Click_Back">EXIT</Button>
+            <Button Grid.Column="1" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top">50/50</Button>
+            <Button Grid.Column="2" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top">2 LIVE</Button>
+            <TextBlock x:Name="ShowName" Grid.Column="3" FontSize="30" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Top">NAME</TextBlock>
         </Grid>
         <Image  Source="/CheckYourself;component/Resources/logo.png" Width="820" HorizontalAlignment="Center" Height="200"  VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2"></Image>
         <Grid Grid.Row="2">
@@ -35,9 +35,9 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="269"/>
-                <RowDefinition Height="201"/>
-                <RowDefinition Height="162"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="150"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="1">
@@ -45,7 +45,7 @@
                 <TextBlock x:Name="SumCost" FontSize="50" HorizontalAlignment="Right">Ваши очки:0</TextBlock>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
-                <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,0" Height="240" VerticalAlignment="Top"></Border>
+                <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,0" Height="150" VerticalAlignment="Top"></Border>
                 <Button x:Name="Quest" Grid.Row="3" FontSize="50" VerticalAlignment="Center" IsEnabled="False">Какая сборная больше всех выиграла в финале?</Button>
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1">
