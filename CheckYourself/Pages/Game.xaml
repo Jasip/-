@@ -21,16 +21,16 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Name="btn_back" Grid.Column="0" FontSize="30" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Click="Button_Click_Back">
+            <Button Name="btn_back" Grid.Column="0" FontSize="30" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Click="Button_Click_Back">
                 <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
             </Button>
-            <Button Grid.Column="1" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Click="Button_Click_help1" ToolTip="Скрывает два неправильных вопроса">
-                <Image Source="/CheckYourself;component/Resources/50_50.png" Width="150" Height="50" VerticalAlignment="Top"></Image>
+            <Button Grid.Column="1" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Button_Click_help1" ToolTip="Скрывает два неправильных вопроса">
+                <Image Source="/CheckYourself;component/Resources/50_50.png" Width="200" Height="50" VerticalAlignment="Top"></Image>
             </Button>
-            <Button Grid.Column="2" FontSize="30" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Click="Button_Click_help2">
-                <Image Source="/CheckYourself;component/Resources/Heart.png" Width="75" Height="50" VerticalAlignment="Top"  ToolTip="Дает вам две попытки ответить на вопрос вместо одной"></Image>
+            <Button Grid.Column="2"  HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Button_Click_help2">
+                <Image Source="/CheckYourself;component/Resources/Heart.png" Width="75" Height="60" VerticalAlignment="Top"  ToolTip="Дает вам две попытки ответить на вопрос вместо одной"></Image>
             </Button>
-            <TextBlock x:Name="ShowName" Grid.Column="3" FontSize="30" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Top">NAME</TextBlock>
+            <TextBlock x:Name="ShowName" Grid.Column="3" FontSize="40" HorizontalAlignment="Right" Margin="0,40,30,0" VerticalAlignment="Top">NAME</TextBlock>
         </Grid>
         <Image  Source="/CheckYourself;component/Resources/logo.png" Width="820" HorizontalAlignment="Center" Height="200"  VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2"></Image>
         <Grid Grid.Row="2">
@@ -48,7 +48,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Column="1">
                 <TextBlock x:Name="Count" FontSize="50" HorizontalAlignment="Left">Вопрос 1/10</TextBlock>
-                <TextBlock x:Name="SumCost" FontSize="50" HorizontalAlignment="Right">Ваши очки:0</TextBlock>
+                <TextBlock x:Name="SumCost" FontSize="50" HorizontalAlignment="Right">Ваши очки: 0</TextBlock>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,0" Height="150" VerticalAlignment="Top"></Border>

@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="10,10,0,0">
+        <Button FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_Back" Margin="40,40,0,0">
             <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
         </Button>
         <Grid Grid.Row="1">
@@ -32,20 +32,20 @@
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="NameVictor" Width="600" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                <TextBox x:Name="NameVictor" Style="{StaticResource placeHolder}" Tag="Название викторины" Width="600" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
                 <TextBox x:Name="Quest" Grid.Row="1" Height="150" LostFocus="Answer4_LostFocus"></TextBox>
                 <Grid Grid.Row="2">
-                    <TextBox x:Name="Answer1" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
-                    <TextBox x:Name="Answer2" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer1" Style="{StaticResource placeHolder}" Tag="Вариант ответа" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer2" Style="{StaticResource placeHolder}" Tag="Вариант ответа" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus"></TextBox>
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <TextBox x:Name="Answer3" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
-                    <TextBox x:Name="Answer4" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus" BorderThickness="5" BorderBrush="Green"/>
+                    <TextBox x:Name="Answer3" Style="{StaticResource placeHolder}" Tag="Вариант ответа" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Answer4" Style="{StaticResource placeHolder}" Tag="Правильный ответ" Width="500" Height="50" HorizontalAlignment="Right" LostFocus="Answer4_LostFocus" BorderThickness="5" BorderBrush="Green"/>
                 </Grid>
 
                 <Grid Grid.Row="4">
-                    <TextBox x:Name="Cost" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
+                    <TextBox x:Name="Cost" Style="{StaticResource placeHolder}" Tag="Количество очков" Width="500" Height="50" HorizontalAlignment="Left" LostFocus="Answer4_LostFocus"></TextBox>
                 </Grid>
             </Grid>
             

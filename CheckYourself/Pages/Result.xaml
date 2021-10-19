@@ -17,10 +17,10 @@
             <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="80" HorizontalAlignment="Center" Margin="0,50,0,0">ПРОВЕРЬ СЕБЯ</TextBlock>
         </Grid>
         <Grid Grid.Row="1">
-            <TextBlock VerticalAlignment="Top" Foreground="Blue" FontSize="50" HorizontalAlignment="Center" Margin="0,50,0,0">Конец игры</TextBlock>
-            <TextBlock x:Name="Name" VerticalAlignment="Top" Foreground="Blue" FontSize="50" HorizontalAlignment="Center" Margin="0,200,0,0">Данил</TextBlock>
-            <TextBlock x:Name="Cost" VerticalAlignment="Top" Foreground="Blue" FontSize="50" HorizontalAlignment="Center" Margin="0,300,0,0">10000 очков</TextBlock>
-            <Button Grid.Column="0" FontSize="50" HorizontalAlignment="Center" Margin="30,0,0,0" VerticalAlignment="Bottom" Click="Button_Click_Back">Главное меню</Button>
+            <TextBlock VerticalAlignment="Top" Foreground="#1266cc" FontSize="50" HorizontalAlignment="Center" Margin="0,50,0,0">Конец игры</TextBlock>
+            <TextBlock x:Name="Name" VerticalAlignment="Top" Foreground="#1266cc" FontSize="50" HorizontalAlignment="Center" Margin="0,200,0,0">Данил</TextBlock>
+            <TextBlock x:Name="Cost" VerticalAlignment="Top" Foreground="#1266cc" FontSize="50" HorizontalAlignment="Center" Margin="0,300,0,0">10000 очков</TextBlock>
+            <Button Grid.Column="0" FontSize="50" HorizontalAlignment="Center" Margin="30,0,0,70" VerticalAlignment="Bottom" Click="Button_Click_Back">Главное меню</Button>
         </Grid>
     </Grid>
 </Page>
