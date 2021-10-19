@@ -62,15 +62,7 @@ namespace CheckYourself.Pages
             else MessageBox.Show("Укажите название викторины");
             if (ok)
             {
-                Button button = new Button()
-                {
-                    Content = "Вопрос " + QuestNum,
-                    FontSize = 50,
-                    HorizontalAlignment = HorizontalAlignment.Left
-                };
-                button.Click += Button_Click_SelectQuest;
-                SP_Questions.Children.Add(button);
-                QuestNum++;
+                
 
                 quests.Add(new Classes.Victorina(count, Quest.Text, Answer1.Text, Answer2.Text, Answer3.Text, Answer4.Text, int.Parse(Cost.Text)));
                 NameVictor.IsEnabled = false;
@@ -91,6 +83,18 @@ namespace CheckYourself.Pages
                     Cost.IsEnabled = false;
                     CreateVictor.IsEnabled = true;
                     AddQuest.IsEnabled = false;
+                }
+                else
+                {
+                    Button button = new Button()
+                    {
+                        Content = "Вопрос " + QuestNum,
+                        FontSize = 50,
+                        HorizontalAlignment = HorizontalAlignment.Left
+                    };
+                    button.Click += Button_Click_SelectQuest;
+                    SP_Questions.Children.Add(button);
+                    QuestNum++;
                 }
             }
         }
