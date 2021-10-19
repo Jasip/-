@@ -7,8 +7,10 @@
         mc:Ignorable="d"
         Title="ChecYourself" Width="1920" Height="1080"
         WindowState="Maximized"
-        WindowStyle="None">
+        WindowStyle="SingleBorderWindow">
     <Grid Background="#1b1b1b">
+        <!--<Viewbox Stretch="Uniform">-->
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0"></Frame>
+        <!--</Viewbox>-->
     </Grid>
 </Window>

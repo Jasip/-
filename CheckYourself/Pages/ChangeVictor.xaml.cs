@@ -45,7 +45,7 @@ namespace CheckYourself.Pages
         }
         private void Begin ()
         {
-            string[] dirs = Directory.GetFiles(dirName);
+            string[] dirs = Directory.GetFiles(dirName,"*.dat");
             for (int i = 0; i < dirs.Length; i++)
             {
                 Victors.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dirs[i]));
