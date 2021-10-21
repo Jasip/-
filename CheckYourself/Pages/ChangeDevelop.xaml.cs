@@ -29,7 +29,7 @@ namespace CheckYourself.Pages
         string dirName = @"Victors\";
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.GoBack();
+            Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
         }
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {

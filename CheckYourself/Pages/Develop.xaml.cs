@@ -62,13 +62,6 @@ namespace CheckYourself.Pages
             else MessageBox.Show("Укажите название викторины");
             if (ok)
             {
-                Content = "Вопрос " + QuestNum,
-                FontSize = 50,
-                HorizontalAlignment = HorizontalAlignment.Left
-            };
-            SP_Questions.Children.Add(button);
-            QuestNum++;
-
                 quests.Add(new Classes.Victorina(count, Quest.Text, Answer1.Text, Answer2.Text, Answer3.Text, Answer4.Text, int.Parse(Cost.Text)));
                 NameVictor.IsEnabled = false;
                 Quest.Text = null;
@@ -100,7 +93,7 @@ namespace CheckYourself.Pages
                     {
                         Content = "Вопрос " + QuestNum,
                         FontSize = 50,
-                        Foreground= (Brush)bc.ConvertFrom("#1266cc"),
+                        Foreground = (Brush)bc.ConvertFrom("#1266cc"),
                         HorizontalAlignment = HorizontalAlignment.Left
                     };
                     button.Click += Button_Click_SelectQuest;
@@ -109,6 +102,7 @@ namespace CheckYourself.Pages
                 }
             }
         }
+        
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {        
             string path = @"Victors\" + NameVictor.Text + ".dat";    
@@ -178,7 +172,7 @@ namespace CheckYourself.Pages
             string text = btn.Content.ToString();
             string[] strings;
             strings = text.Split(' ');
-            SelectQuest(Convert.ToInt32(strings[1].ToString()));
+            SelectQuest(Convert.ToInt32(strings[1].ToString())-1);
         }
 
 
