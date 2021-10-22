@@ -105,7 +105,7 @@ namespace CheckYourself.Pages
         
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {        
-            string path = @"Victors\" + NameVictor.Text + ".dat";    
+            string path = @"Victors\" + NameVictor.Text + ".data";    
             try
             {
                 using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Create)))
@@ -154,21 +154,35 @@ namespace CheckYourself.Pages
         }
         private void SelectQuest(int id)
         {
-            ID = id;
-            Quest.Text = quests[id].quest;
-            Answer1.Text = quests[id].answer1;
-            Answer2.Text = quests[id].answer2;
-            Answer3.Text = quests[id].answer3;
-            Answer4.Text = quests[id].answer4;
-            Cost.Text = quests[id].cost.ToString();
+            try
+            {
+                ID = id;
+                Quest.Text = quests[id].quest;
+                Answer1.Text = quests[id].answer1;
+                Answer2.Text = quests[id].answer2;
+                Answer3.Text = quests[id].answer3;
+                Answer4.Text = quests[id].answer4;
+                Cost.Text = quests[id].cost.ToString();
+            }
+            catch
+            {
+                Quest.Text = null;
+                Answer1.Text = null;
+                Answer2.Text = null;
+                Answer3.Text = null;
+                Answer4.Text = null;
+                Cost.Text = null;
+            }
         }
         private void Button_Click_SelectQuest(object sender, RoutedEventArgs e)
         {
             for(int i=0; i<SP_Questions.Children.Count;i++)
             {
                 (SP_Questions.Children[i] as Button).Foreground = Brushes.White;
-            }           
-            Button btn = (Button)sender;     
+            }
+            var bc = new BrushConverter();
+            Button btn = (Button)sender;
+            btn.Foreground = (Brush)bc.ConvertFrom("#1266cc");
             string text = btn.Content.ToString();
             string[] strings;
             strings = text.Split(' ');

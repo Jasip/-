@@ -36,7 +36,7 @@ namespace CheckYourself.Pages
 
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
-            if (broke(dirName + Victors.SelectedItem.ToString() + ".dat"))
+            if (broke(dirName + Victors.SelectedItem.ToString() + ".data"))
             {
                 if (Victors.SelectedIndex >= 0)
                     if (Name.Text.Length > 0)
@@ -53,7 +53,7 @@ namespace CheckYourself.Pages
         }
         private void Begin ()
         {
-            string[] dirs = Directory.GetFiles(dirName,"*.dat");
+            string[] dirs = Directory.GetFiles(dirName,"*.data");
             for (int i = 0; i < dirs.Length; i++)
             {
                 Victors.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dirs[i]));

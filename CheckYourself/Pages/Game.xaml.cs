@@ -25,7 +25,7 @@ namespace CheckYourself.Pages
         {
             InitializeComponent();
             ShowName.Text = username;
-            path = @"Victors\" + victor + ".dat";
+            path = @"Victors\" + victor + ".data";
             Start();
         }
         string path;

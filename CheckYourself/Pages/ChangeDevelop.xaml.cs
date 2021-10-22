@@ -41,7 +41,7 @@ namespace CheckYourself.Pages
             Button btn = (Button)sender;
             StackPanel st = (StackPanel)btn.Parent;
             TextBlock tx = (TextBlock)st.Children[0];
-            string[] files = Directory.GetFiles(dirName, tx.Text + ".dat");
+            string[] files = Directory.GetFiles(dirName, tx.Text + ".data");
             if (broke(files[0]))
                 Classes.Manager.MainFrame.Navigate(new Pages.Develop(files[0]));
             else
@@ -56,15 +56,15 @@ namespace CheckYourself.Pages
                     StackPanel st = (StackPanel)btn.Parent;
                     TextBlock tx = (TextBlock)st.Children[0];
 
-                if (File.Exists(@"Victors\" + tx.Text + ".dat"))
-                        File.Delete(@"Victors\" + tx.Text + ".dat");
+                if (File.Exists(@"Victors\" + tx.Text + ".data"))
+                        File.Delete(@"Victors\" + tx.Text + ".data");
                     Victors.Children.Remove(st);
             }           
         }
         private void Begin()
         {
             
-            string[] dirs = Directory.GetFiles(dirName,"*.dat");
+            string[] dirs = Directory.GetFiles(dirName,"*.data");
             for (int i = 0; i < dirs.Length; i++)
             {
                 StackPanel victor = new StackPanel()
