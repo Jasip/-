@@ -38,7 +38,7 @@ namespace CheckYourself.Pages
         string CorAnser;
         int cost = 0;
         int n;
-        bool help = false;
+        bool help, work = false;
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
@@ -69,58 +69,62 @@ namespace CheckYourself.Pages
             }
             catch
             {
-                MessageBox.Show("Ошибка в чтении файла!");
-                
+               
             }
         }
         private void Stage()
         {
-            for (int i = 0; i < 3; i++)
-            {
-                btns[i].Visibility = Visibility.Visible;
-            }
-            SumCost.Text = "Ваши очки: " + cost.ToString();
-            if (state > 9)
-            {
-                Classes.Manager.MainFrame.Navigate(new Pages.Result(ShowName.Text, cost));
-            }
+            if (work)
+                Classes.Manager.MainFrame.Navigate(typeof(Pages.MainPage));
             else
             {
-                n = Numbers[state];
-                int corect = rnd.Next(1, 4);
-                if (corect == 1)
+                for (int i = 0; i < 3; i++)
                 {
-                    Quest.Content = quests[n].quest;
-                    Answer1.Content = quests[n].answer1;
-                    Answer2.Content = quests[n].answer2;
-                    Answer3.Content = quests[n].answer3;
-                    Answer4.Content = quests[n].answer4;
+                    btns[i].Visibility = Visibility.Visible;
                 }
-                if (corect == 2)
+                SumCost.Text = "Ваши очки: " + cost.ToString();
+                if (state > 9)
                 {
-                    Quest.Content = quests[n].quest;
-                    Answer1.Content = quests[n].answer2;
-                    Answer2.Content = quests[n].answer3;
-                    Answer3.Content = quests[n].answer4;
-                    Answer4.Content = quests[n].answer1;
+                    Classes.Manager.MainFrame.Navigate(new Pages.Result(ShowName.Text, cost));
                 }
-                if (corect == 3)
+                else
                 {
-                    Quest.Content = quests[n].quest;
-                    Answer1.Content = quests[n].answer2;
-                    Answer2.Content = quests[n].answer4;
-                    Answer3.Content = quests[n].answer3;
-                    Answer4.Content = quests[n].answer1;
+                    n = Numbers[state];
+                    int corect = rnd.Next(1, 4);
+                    if (corect == 1)
+                    {
+                        Quest.Content = quests[n].quest;
+                        Answer1.Content = quests[n].answer1;
+                        Answer2.Content = quests[n].answer2;
+                        Answer3.Content = quests[n].answer3;
+                        Answer4.Content = quests[n].answer4;
+                    }
+                    if (corect == 2)
+                    {
+                        Quest.Content = quests[n].quest;
+                        Answer1.Content = quests[n].answer2;
+                        Answer2.Content = quests[n].answer3;
+                        Answer3.Content = quests[n].answer4;
+                        Answer4.Content = quests[n].answer1;
+                    }
+                    if (corect == 3)
+                    {
+                        Quest.Content = quests[n].quest;
+                        Answer1.Content = quests[n].answer2;
+                        Answer2.Content = quests[n].answer4;
+                        Answer3.Content = quests[n].answer3;
+                        Answer4.Content = quests[n].answer1;
+                    }
+                    if (corect == 4)
+                    {
+                        Quest.Content = quests[n].quest;
+                        Answer1.Content = quests[n].answer4;
+                        Answer2.Content = quests[n].answer3;
+                        Answer3.Content = quests[n].answer2;
+                        Answer4.Content = quests[n].answer1;
+                    }
+                    CorAnser = quests[n].answer4;
                 }
-                if (corect == 4)
-                {
-                    Quest.Content = quests[n].quest;
-                    Answer1.Content = quests[n].answer4;
-                    Answer2.Content = quests[n].answer3;
-                    Answer3.Content = quests[n].answer2;
-                    Answer4.Content = quests[n].answer1;
-                }
-                CorAnser = quests[n].answer4;
             }
         }
 

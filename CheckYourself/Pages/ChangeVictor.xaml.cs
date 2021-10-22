@@ -28,6 +28,7 @@ namespace CheckYourself.Pages
             Begin();
         }
         string dirName = @"Victors\";
+        List<Classes.Victorina> quests = new List<Classes.Victorina>();
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.GoBack();
@@ -35,13 +36,21 @@ namespace CheckYourself.Pages
 
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
-            if (Victors.SelectedIndex >= 0)
-                if (Name.Text.Length > 0)
-                    Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text, Victors.SelectedItem.ToString()));
+            if (broke(dirName + Name.Text + ".dat"))
+            {
+                if (Victors.SelectedIndex >= 0)
+                    if (Name.Text.Length > 0)
+                        Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text, Victors.SelectedItem.ToString()));
+                    else
+                        MessageBox.Show("Укажите ник для начала игры");
                 else
-                    MessageBox.Show("Укажите ник для начала игры");
+                    MessageBox.Show("Выберите викторину для начала игры");
+            }
             else
-                MessageBox.Show("Выберите викторину для начала игры");
+            {
+                MessageBox.Show("Ошибка в чтение файла");
+                Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
+            }
         }
         private void Begin ()
         {
@@ -49,6 +58,20 @@ namespace CheckYourself.Pages
             for (int i = 0; i < dirs.Length; i++)
             {
                 Victors.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dirs[i]));
+            }
+        }
+        bool broke (string path)
+        {
+            try
+            {
+                using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                    while (reader.PeekChar() > -1)
+                        quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
