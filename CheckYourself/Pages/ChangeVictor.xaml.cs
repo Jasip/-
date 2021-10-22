@@ -36,7 +36,7 @@ namespace CheckYourself.Pages
 
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
-            if (broke(dirName + Name.Text + ".dat"))
+            if (broke(dirName + Victors.SelectedItem.ToString() + ".dat"))
             {
                 if (Victors.SelectedIndex >= 0)
                     if (Name.Text.Length > 0)
