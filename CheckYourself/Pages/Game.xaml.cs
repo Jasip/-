@@ -38,7 +38,7 @@ namespace CheckYourself.Pages
         string CorAnser;
         int cost = 0;
         int n;
-        bool help, work = false;
+        bool help = false;
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
@@ -74,10 +74,6 @@ namespace CheckYourself.Pages
         }
         private void Stage()
         {
-            if (work)
-                Classes.Manager.MainFrame.Navigate(typeof(Pages.MainPage));
-            else
-            {
                 for (int i = 0; i < 3; i++)
                 {
                     btns[i].Visibility = Visibility.Visible;
@@ -125,7 +121,6 @@ namespace CheckYourself.Pages
                     }
                     CorAnser = quests[n].answer4;
                 }
-            }
         }
 
         private void Answer_Click(object sender, RoutedEventArgs e)

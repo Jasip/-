@@ -49,7 +49,6 @@ namespace CheckYourself.Pages
             else
             {
                 MessageBox.Show("Ошибка в чтение файла");
-                Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
             }
         }
         private void Begin ()
