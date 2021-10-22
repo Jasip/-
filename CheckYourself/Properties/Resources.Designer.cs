@@ -131,15 +131,6 @@ namespace CheckYourself.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream maintheme {
-            get {
-                return ResourceManager.GetStream("maintheme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap sound {
