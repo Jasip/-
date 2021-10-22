@@ -25,6 +25,7 @@ namespace CheckYourself.Pages
         {
             InitializeComponent();
         }
+        bool music = true;
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.ChangeVictor());
@@ -40,6 +41,20 @@ namespace CheckYourself.Pages
         private void Button_Click_Exit(object sender, RoutedEventArgs e)
         {
             Process.GetCurrentProcess().Kill();
+        }
+
+        private void SoundButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (music)
+            {
+                Classes.Manager.MainSoundPlayer.Stop();
+                music = false;
+            }
+            else
+            {
+                Classes.Manager.MainSoundPlayer.PlayLooping();
+                music = true;
+            }
         }
     }
 }

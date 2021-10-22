@@ -31,7 +31,7 @@
             <Image Source="/CheckYourself;component/Resources/logo.png" Width="819" Height="200" Margin="40,188,40,0" VerticalAlignment="Top"></Image>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="0">
-            <Button Name="SoundButton" HorizontalAlignment="Left"  Height="45" VerticalAlignment="Top" Margin="40,40,0,0">
+            <Button Name="SoundButton" HorizontalAlignment="Left"  Height="45" VerticalAlignment="Top" Margin="40,40,0,0" Click="SoundButton_Click">
                 <Image Source="/CheckYourself;component/Resources/sound.png"></Image>
             </Button>
         </Grid>

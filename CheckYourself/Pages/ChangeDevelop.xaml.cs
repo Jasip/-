@@ -48,12 +48,13 @@ namespace CheckYourself.Pages
             MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить викторину?", "Предупреждение", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
-                Button btn = (Button)sender;
-                StackPanel st = (StackPanel)btn.Parent;
-                TextBlock tx = (TextBlock)st.Children[0];
-                string[] files = Directory.GetFiles(dirName, tx.Text + ".dat");
-                File.Delete(files[0]);
-                Victors.Children.Remove(st);
+                    Button btn = (Button)sender;
+                    StackPanel st = (StackPanel)btn.Parent;
+                    TextBlock tx = (TextBlock)st.Children[0];
+
+                if (File.Exists(@"Victors\" + tx.Text + ".dat"))
+                        File.Delete(@"Victors\" + tx.Text + ".dat");
+                    Victors.Children.Remove(st);
             }           
         }
         private void Begin()
