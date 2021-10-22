@@ -27,6 +27,7 @@ namespace CheckYourself.Pages
             Begin();
         }
         string dirName = @"Victors\";
+        List<Classes.Victorina> quests = new List<Classes.Victorina>();
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.MainPage());
@@ -41,7 +42,10 @@ namespace CheckYourself.Pages
             StackPanel st = (StackPanel)btn.Parent;
             TextBlock tx = (TextBlock)st.Children[0];
             string[] files = Directory.GetFiles(dirName, tx.Text + ".dat");
-            Classes.Manager.MainFrame.Navigate(new Pages.Develop(files[0]));
+            if (broke(files[0]))
+                Classes.Manager.MainFrame.Navigate(new Pages.Develop(files[0]));
+            else
+                MessageBox.Show("Ошибка в чтение файла");
         }
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
@@ -130,6 +134,25 @@ namespace CheckYourself.Pages
                 victor.Children.Add(btnDel);
                 btnDel.Click += Button_Click_Delete;
                 btnDel.Content = img2;
+            }
+        }
+        bool broke(string path)
+        {
+            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                if (reader.PeekChar() == -1)
+                    return false;
+            try
+            {
+                using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                    while (reader.PeekChar() > -1)
+                    {
+                        quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
+                    }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

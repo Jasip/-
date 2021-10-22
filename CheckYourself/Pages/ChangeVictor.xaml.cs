@@ -62,11 +62,16 @@ namespace CheckYourself.Pages
         }
         bool broke (string path)
         {
+            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                if (reader.PeekChar() == -1)
+                    return false;
             try
             {
                 using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
                     while (reader.PeekChar() > -1)
+                    {
                         quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
+                    }
                 return true;
             }
             catch
