@@ -49,11 +49,13 @@ namespace CheckYourself.Pages
             {
                 Classes.Manager.MainSoundPlayer.Stop();
                 music = false;
+                Sound.Source = new BitmapImage(new Uri("/Resources/nosound.png",UriKind.Relative));              
             }
             else
             {
                 Classes.Manager.MainSoundPlayer.PlayLooping();
                 music = true;
+                Sound.Source = new BitmapImage(new Uri("/Resources/sound.png", UriKind.Relative));
             }
         }
     }

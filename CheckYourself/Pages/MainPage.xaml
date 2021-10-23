@@ -32,7 +32,7 @@
         </Grid>
         <Grid Grid.Row="0" Grid.Column="0">
             <Button Name="SoundButton" HorizontalAlignment="Left"  Height="45" VerticalAlignment="Top" Margin="40,40,0,0" Click="SoundButton_Click">
-                <Image Source="/CheckYourself;component/Resources/sound.png"></Image>
+                <Image Name="Sound" Source="/CheckYourself;component/Resources/sound.png"></Image>
             </Button>
         </Grid>
     </Grid>

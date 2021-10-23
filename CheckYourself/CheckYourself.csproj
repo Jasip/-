@@ -177,6 +177,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\CheckYourself.exe" />
     <Content Include="bin\Debug\CheckYourself.pdb" />
+    <Resource Include="Resources\nosound.png" />
     <EmbeddedResource Include="maintheme.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

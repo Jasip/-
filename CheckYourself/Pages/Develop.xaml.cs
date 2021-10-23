@@ -202,5 +202,7 @@ namespace CheckYourself.Pages
                 quests[ID].cost = Int32.Parse(Cost.Text);
             }
         }
+
+        
     }
 }
