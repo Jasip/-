@@ -51,7 +51,7 @@
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,0,0,0" HorizontalAlignment="Right" Width="500">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="SP_Questions" Orientation="Vertical" HorizontalAlignment="Left" Width="295">
-                            <Button HorizontalAlignment="Left" FontSize="50">Вопрос 1</Button>
+                            <Button HorizontalAlignment="Left" Click="Button_Click_SelectQuest" FontSize="50" Foreground="#FF1266CC">Вопрос 1</Button>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>
