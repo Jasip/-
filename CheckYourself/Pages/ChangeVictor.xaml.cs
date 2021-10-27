@@ -36,7 +36,7 @@ namespace CheckYourself.Pages
 
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
-            if (broke(dirName + Victors.SelectedItem.ToString() + ".data"))
+            try {             if (broke(dirName + Victors.SelectedItem.ToString() + ".data"))
             {
                 if (Victors.SelectedIndex >= 0)
                     if (Name.Text.Length > 0)
@@ -50,6 +50,10 @@ namespace CheckYourself.Pages
             {
                 MessageBox.Show("Ошибка в чтение файла");
             }
+            }
+            catch {
+                MessageBox.Show("ОШИБКА");
+            };
         }
         private void Begin ()
         {

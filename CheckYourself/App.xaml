@@ -33,7 +33,9 @@
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="/CheckYourself;component/Resources/#Izax"></Setter>
-           
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="40"></Setter>

@@ -120,6 +120,7 @@ namespace CheckYourself.Pages
                         Answer4.Content = quests[n].answer1;
                     }
                     CorAnser = quests[n].answer4;
+                    Cost.Text = quests[n].cost.ToString();
                 }
         }
 

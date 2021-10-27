@@ -27,17 +27,26 @@ namespace CheckYourself.Pages
         {
             InitializeComponent();
             CreateVictor.IsEnabled = false;
+            textboxs.Add(Answer1);
+            textboxs.Add(Answer2);
+            textboxs.Add(Answer3);
+            textboxs.Add(Answer4);
         }
         public Develop(string nameVictor)
         {
             InitializeComponent();
             AddQuest.IsEnabled = false;
             path = nameVictor;
-            editmode = false;
+            editmode = true;
+            textboxs.Add(Answer1);
+            textboxs.Add(Answer2);
+            textboxs.Add(Answer3);
+            textboxs.Add(Answer4);
             EditMode();
         }
         bool editmode;
         string path;
+        List<TextBox> textboxs  = new List<TextBox>();
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
         public int count = 0;
         int QuestNum = 2;
@@ -48,14 +57,34 @@ namespace CheckYourself.Pages
         }
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
-        {
+        { 
             bool ok = false;
             if (NameVictor.Text.Length > 0)
                 if (Quest.Text.Length > 0)
                     if (Answer1.Text.Length > 0 && Answer2.Text.Length > 0 && Answer3.Text.Length > 0 && Answer4.Text.Length > 0)
                         if (Cost.Text.Length > 0)
-                            try { Convert.ToInt32(Cost.Text);if (Convert.ToInt32(Cost.Text) < 1) MessageBox.Show("Кол-во очков не может быть меньше нуля!"); else ok = true; } 
-                            catch { MessageBox.Show("Укажите кол-во очков правильно"); }
+                            try
+                            {
+                                Convert.ToInt32(Cost.Text);
+                                if (Convert.ToInt32(Cost.Text) > 1)
+                                    {
+                                    ok = true;
+                                    for (int j = 0; j < 4; j++)
+                                        for (int i = 0; i < 4; i++)
+                                        {
+                                            if ((textboxs[i].Text == textboxs[j].Text) && (i != j))
+                                                ok = false;
+                                        }
+                                    if (!ok)
+                                        MessageBox.Show("Ответы не могут повторяться!");
+                                    }
+                                else
+                                    MessageBox.Show("Кол-во очков не может быть меньше нуля!");   
+                            } 
+                            catch
+                            {
+                                MessageBox.Show("Укажите кол-во очков правильно");
+                            }
                         else MessageBox.Show("Укажите стоимость вопроса");
                     else MessageBox.Show("Укажите все четыре ответа на ваш вопрос");
                 else MessageBox.Show("Укажите вопрос");
@@ -82,6 +111,7 @@ namespace CheckYourself.Pages
                     Cost.IsEnabled = false;
                     CreateVictor.IsEnabled = true;
                     AddQuest.IsEnabled = false;
+                    CreateVictor.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -133,6 +163,8 @@ namespace CheckYourself.Pages
         }
         private void EditMode()
         {
+            CreateVictor.Visibility = Visibility.Visible;
+            CreateVictor.Content = "Сохранить викторину";
             NameVictor.Text = System.IO.Path.GetFileNameWithoutExtension(path);
             NameVictor.IsEnabled = false;
             using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
@@ -194,12 +226,46 @@ namespace CheckYourself.Pages
         {
             if (editmode)
             {
-                quests[ID].quest = Quest.Text;
-                quests[ID].answer1 = Answer1.Text;
-                quests[ID].answer2 = Answer2.Text;
-                quests[ID].answer3 = Answer3.Text;
-                quests[ID].answer4 = Answer4.Text;
-                quests[ID].cost = Int32.Parse(Cost.Text);
+                bool ok = false;
+                if (NameVictor.Text.Length > 0)
+                    if (Quest.Text.Length > 0)
+                        if (Answer1.Text.Length > 0 && Answer2.Text.Length > 0 && Answer3.Text.Length > 0 && Answer4.Text.Length > 0)
+                            if (Cost.Text.Length > 0)
+                                try
+                                {
+                                    Convert.ToInt32(Cost.Text);
+                                    if (Convert.ToInt32(Cost.Text) > 1)
+                                    {
+                                        ok = true;
+                                        for (int j = 0; j < 4; j++)
+                                            for (int i = 0; i < 4; i++)
+                                            {
+                                                if ((textboxs[i].Text == textboxs[j].Text) && (i != j))
+                                                    ok = false;
+                                            }
+                                        if (!ok)
+                                            MessageBox.Show("Ответы не могут повторяться!");
+                                    }
+                                    else
+                                        MessageBox.Show("Кол-во очков не может быть меньше нуля!");
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Кол-во очков должно быть только числового формата");
+                                }
+                            else MessageBox.Show("Укажите стоимость вопроса");
+                        else MessageBox.Show("Укажите все четыре ответа на ваш вопрос");
+                    else MessageBox.Show("Укажите вопрос");
+                else MessageBox.Show("Укажите название викторины");
+                if (ok)
+                {
+                    quests[ID].quest = Quest.Text;
+                    quests[ID].answer1 = Answer1.Text;
+                    quests[ID].answer2 = Answer2.Text;
+                    quests[ID].answer3 = Answer3.Text;
+                    quests[ID].answer4 = Answer4.Text;
+                    quests[ID].cost = Int32.Parse(Cost.Text);
+                }
             }
         }
 
