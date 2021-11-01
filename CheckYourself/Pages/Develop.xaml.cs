@@ -66,7 +66,7 @@ namespace CheckYourself.Pages
                             try
                             {
                                 Convert.ToInt32(Cost.Text);
-                                if (Convert.ToInt32(Cost.Text) > 1)
+                                if (Convert.ToInt32(Cost.Text) >= 1)
                                     {
                                     ok = true;
                                     for (int j = 0; j < 4; j++)
@@ -83,7 +83,7 @@ namespace CheckYourself.Pages
                             } 
                             catch
                             {
-                                MessageBox.Show("Укажите кол-во очков правильно");
+                                MessageBox.Show("Кол-во очков должно быть только числового формата");
                             }
                         else MessageBox.Show("Укажите стоимость вопроса");
                     else MessageBox.Show("Укажите все четыре ответа на ваш вопрос");
@@ -112,6 +112,7 @@ namespace CheckYourself.Pages
                     CreateVictor.IsEnabled = true;
                     AddQuest.IsEnabled = false;
                     CreateVictor.Visibility = Visibility.Visible;
+                    AddQuest.Visibility = Visibility.Hidden;
                 }
                 else
                 {
@@ -163,6 +164,7 @@ namespace CheckYourself.Pages
         }
         private void EditMode()
         {
+            AddQuest.Visibility = Visibility.Hidden;
             CreateVictor.Visibility = Visibility.Visible;
             CreateVictor.Content = "Сохранить викторину";
             NameVictor.Text = System.IO.Path.GetFileNameWithoutExtension(path);

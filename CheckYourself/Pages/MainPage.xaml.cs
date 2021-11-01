@@ -24,8 +24,16 @@ namespace CheckYourself.Pages
         public MainPage()
         {
             InitializeComponent();
+
+            if (!Classes.Manager.music)
+            {
+                Sound.Source = new BitmapImage(new Uri("/Resources/nosound.png", UriKind.Relative));
+            }
+            else
+            {
+                Sound.Source = new BitmapImage(new Uri("/Resources/sound.png", UriKind.Relative));
+            }
         }
-        bool music = true;
         private void Button_Click_Play(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.ChangeVictor());
@@ -45,16 +53,16 @@ namespace CheckYourself.Pages
 
         private void SoundButton_Click(object sender, RoutedEventArgs e)
         {
-            if (music)
+            if (Classes.Manager.music)
             {
                 Classes.Manager.MainSoundPlayer.Stop();
-                music = false;
+                Classes.Manager.music = false;
                 Sound.Source = new BitmapImage(new Uri("/Resources/nosound.png",UriKind.Relative));              
             }
             else
             {
                 Classes.Manager.MainSoundPlayer.PlayLooping();
-                music = true;
+                Classes.Manager.music = true;
                 Sound.Source = new BitmapImage(new Uri("/Resources/sound.png", UriKind.Relative));
             }
         }

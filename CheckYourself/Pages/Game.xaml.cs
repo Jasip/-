@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Threading;
 
 namespace CheckYourself.Pages
 {
@@ -32,7 +33,7 @@ namespace CheckYourself.Pages
         public Random rnd = new Random();
         List<Classes.Victorina> quests = new List<Classes.Victorina>();
         List<int> Numbers = new List<int>();
-        List<Button> btns = new List<Button>();
+        public List<Button> btns = new List<Button>();
 
         int state = 0;
         string CorAnser;
@@ -47,25 +48,25 @@ namespace CheckYourself.Pages
         {
             try
             {
-            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
-                while (reader.PeekChar() > -1)
-                    quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
-            Random r = new Random();
-            int value;
-            for (int i = 0; i < 10;)
-            {
-                value = r.Next(10);
-                if (!Numbers.Contains(value))
+                using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+                    while (reader.PeekChar() > -1)
+                        quests.Add(new Classes.Victorina(reader.ReadInt32(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadString(), reader.ReadInt32()));
+                Random r = new Random();
+                int value;
+                for (int i = 0; i < 10;)
                 {
-                    Numbers.Add(value);
-                    i++;
+                    value = r.Next(10);
+                    if (!Numbers.Contains(value))
+                    {
+                        Numbers.Add(value);
+                        i++;
+                    }
                 }
-            }
-            btns.Add(Answer1);
-            btns.Add(Answer2);
-            btns.Add(Answer3);
-            btns.Add(Answer4);
-            Stage();
+                btns.Add(Answer1);
+                btns.Add(Answer2);
+                btns.Add(Answer3);
+                btns.Add(Answer4);
+                Stage();
             }
             catch
             {
@@ -148,6 +149,9 @@ namespace CheckYourself.Pages
                 if (text.Content.ToString() == CorAnser)
                 {
                     cost = cost + quests[n].cost;
+                }
+                else
+                {
                 }
                 Count.Text = "Вопрос " + (state + 2).ToString() + "/10";
                 state++;

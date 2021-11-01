@@ -12,5 +12,6 @@ namespace CheckYourself.Classes
     {
         public static Frame MainFrame = new Frame();
         public static SoundPlayer MainSoundPlayer = new SoundPlayer();
+        public static bool music = true;
     }
 }

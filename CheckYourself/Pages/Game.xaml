@@ -21,14 +21,21 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
             <Button Name="btn_back" Grid.Column="0" FontSize="30" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Click="Button_Click_Back">
                 <Image Source="/CheckYourself;component/Resources/leave.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
             </Button>
-            <Button Grid.Column="1" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" ToolTip="Оставляет участнику только один правильный и один неправильный вариант. Это озночает, что у него есть шанс 50/50. " Click="Button_Click_help1">
+            <Button Grid.Column="1" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Button_Click_help1" ToolTipService.ShowDuration="100000">
                 <Image Source="/CheckYourself;component/Resources/50_50.png" Width="200" Height="50" VerticalAlignment="Top"></Image>
+                <Button.ToolTip >
+                    <TextBlock Width="400" Background="#1b1b1b" TextAlignment="Justify" TextWrapping="Wrap">Оставляет участнику только один правильный и один неправильный вариант. Это означает, что у него есть шанс 50/50.</TextBlock>
+                </Button.ToolTip>
             </Button>
-            <Button Grid.Column="2"  HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Button_Click_help2">
-                <Image Source="/CheckYourself;component/Resources/Heart.png" Width="75" Height="60" VerticalAlignment="Top"  ToolTip="Дает участнику ошибиться один раз без перехода на следующий вопрос. Это значит, что у него есть второй шанс. "></Image>
+            <Button Grid.Column="2"  HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Click="Button_Click_help2" ToolTipService.ShowDuration="100000">
+                <Image Source="/CheckYourself;component/Resources/Heart.png" Width="75" Height="60" VerticalAlignment="Top"></Image>
+                <Button.ToolTip >
+                    <TextBlock Width="400" Background="#1b1b1b" TextAlignment="Justify" TextWrapping="Wrap">Дает участнику ошибиться один раз без перехода на следующий вопрос. Это значит, что у него есть второй шанс.</TextBlock>
+                </Button.ToolTip>
             </Button>
             <TextBlock Foreground="White" x:Name="ShowName" Grid.Column="3" FontSize="40" HorizontalAlignment="Right" Margin="0,40,30,0" VerticalAlignment="Top">NAME</TextBlock>
         </Grid>
@@ -52,29 +59,29 @@
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,0" Height="150" VerticalAlignment="Top">
-                    <TextBlock x:Name="Cost" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="30" Margin="0,0,5,0" Foreground="White">400 очков</TextBlock>
+                    <TextBlock x:Name="Cost" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="30" Margin="0,0,5,0" Foreground="White">очки</TextBlock>
                 </Border>
-                <Button x:Name="Quest" Grid.Row="3" FontSize="50" VerticalAlignment="Center" IsEnabled="False">Какая сборная больше всех выиграла в финале?</Button>
+                <Button x:Name="Quest" Grid.Row="3" FontSize="50" VerticalAlignment="Center" IsEnabled="False"></Button>
                
             </Grid>
             <Grid Grid.Row="2" Grid.Column="1">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Left" Width="700">
-                    <Button x:Name="Answer1" Grid.Row="3" FontSize="50" Margin="0" Width="700" BorderThickness="4" Height="90" Click="Answer_Click">Бразилия</Button>
+                    <Button x:Name="Answer1" Grid.Row="3" FontSize="50" Margin="0" Width="700" BorderThickness="4" Height="90" Click="Answer_Click"></Button>
                 </Border>
 
 
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Right" Width="700">
-                    <Button x:Name="Answer2" Grid.Row="3" FontSize="50" VerticalAlignment="Center"  Width="710" Height="110"  Margin="0" Click="Answer_Click">Германия</Button>
+                    <Button x:Name="Answer2" Grid.Row="3" FontSize="50" VerticalAlignment="Center"  Width="710" Height="110"  Margin="0" Click="Answer_Click"></Button>
                 </Border>
 
             </Grid>
             <Grid Grid.Row="3" Grid.Column="1">
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Left" Width="700">
-                    <Button x:Name="Answer3" Grid.Row="3" FontSize="50" VerticalAlignment="Center"  Width="710" Height="110"  Margin="0" Click="Answer_Click">Италия</Button>
+                    <Button x:Name="Answer3" Grid.Row="3" FontSize="50" VerticalAlignment="Center"  Width="710" Height="110"  Margin="0" Click="Answer_Click"></Button>
                 </Border>
 
                 <Border BorderBrush="DarkGray" BorderThickness="2" Margin="0,30,0,30" HorizontalAlignment="Right" Width="700">
-                    <Button x:Name="Answer4" Grid.Row="3" FontSize="50" VerticalAlignment="Center"  Width="710" Height="110"  Margin="0" Click="Answer_Click">Аргентина</Button>
+                    <Button x:Name="Answer4" Grid.Row="3" FontSize="50" VerticalAlignment="Center"  Width="710" Height="110"  Margin="0" Click="Answer_Click"></Button>
                 </Border>
             </Grid>
         </Grid>

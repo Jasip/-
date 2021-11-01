@@ -42,9 +42,7 @@ namespace CheckYourself.Pages
                     if (Name.Text.Length > 0)
                         Classes.Manager.MainFrame.Navigate(new Pages.Game(Name.Text, Victors.SelectedItem.ToString()));
                     else
-                        MessageBox.Show("Укажите ник для начала игры");
-                else
-                    MessageBox.Show("Выберите викторину для начала игры");
+                        MessageBox.Show("Укажите ник для начала игры");               
             }
             else
             {
@@ -52,7 +50,7 @@ namespace CheckYourself.Pages
             }
             }
             catch {
-                MessageBox.Show("ОШИБКА");
+                MessageBox.Show("Выберите викторину для начала игры");
             };
         }
         private void Begin ()
